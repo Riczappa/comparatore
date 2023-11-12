@@ -7,11 +7,18 @@ function Card() {
   const [dataset,setDataset] = useState([])
 
   const apiUrl = process.env.REACT_APP_API_URL;
+  
+  
 
   useEffect(() => {
+    
+    console.log('API URL:', process.env.REACT_APP_API_URL);
+
     const fetchData = async () => {
       try {
+        console.log(process.env)
         const response = await fetch(apiUrl);
+        
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
