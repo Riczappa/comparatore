@@ -1,13 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import santander_logo from "../images/santander_logo.png"
 
+
+
 function Card() {
   const [dataset,setDataset] = useState([])
+
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/products');
+        const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
