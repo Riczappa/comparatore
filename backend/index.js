@@ -22,16 +22,16 @@ setInterval(keepServerAwake, 1500000);
 // Sample data
 const bankingProducts = [
   {
-    bank: 'Bank A',
-    product: 'Savings Account',
-    image: 'https://example.com/bank-a-image.jpg',
+    bank: 'Illimity',
+    product: 'Conto deposito Plus',
+    image: 'https://ibsintelligence.com/wp-content/uploads/2021/12/ibs_illimity-bank.jpg',
     description:"high tax",
     tasso:0.10
   },
   {
-    bank: 'Bank B',
-    product: 'Checking Account',
-    image: 'https://example.com/bank-b-image.jpg',
+    bank: 'Intesa San Paolo',
+    product: 'Risparmio plus',
+    image: 'https://www.paolocrespi.eu/wp-content/uploads/2022/11/intesa-sanpaolo-squarelogo-610x407.png',
     description:"high tax",
     tasso: 0.05
   }
