@@ -3,17 +3,21 @@ import Results from './Results';
 
 function FormStep1({ onNext, formData, updateFormData }) {
     return (
-      <div>
-        <h1>inserisci il capitale da investire</h1>
-        <input
-          type="text" 
-          value={formData.capital} 
-          onChange={(e) => updateFormData('capital', e.target.value)} 
-          placeholder="Inserisci un valore" 
-         
-         />
-
-        <button onClick={onNext}>Avanti</button>
+        <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
+        <div className="flex-shrink-0">
+          {/* Icona o immagine se necessario */}
+        </div>
+        <div>
+          <h2 className="text-xl font-medium text-black">Quanto vuoi investire?</h2>
+          <input 
+            type="number" 
+            className="mt-2 p-2 border rounded-lg w-full"
+            value={formData.capital} 
+            onChange={(e) => updateFormData('capital', e.target.value)} 
+            placeholder="Inserisci l'importo" 
+          />
+          <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Avanti</button>
+        </div>
       </div>
     );
   }
@@ -23,16 +27,21 @@ function FormStep1({ onNext, formData, updateFormData }) {
   
   function FormStep2({ onBack, onNext, formData, updateFormData}) {
     return (
-      <div>
-       <h1>Inserisci gli anni</h1>
-       <input 
-        type="number" 
-        value={formData.years} 
-        onChange={(e) => updateFormData('years', e.target.value)} 
-        placeholder="Inserisci il numero di anni" 
-      />
-        <button onClick={onBack}>Indietro</button>
-        <button onClick={onNext}>Avanti</button>
+        <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center">
+        <h2 className="text-xl font-medium text-black">Per quanti anni vuoi investire?</h2>
+        <input 
+          type="number" 
+          className="mt-2 p-2 border rounded-lg w-full"
+          min="1"
+          max="30"
+          value={formData.years} 
+          onChange={(e) => updateFormData('years', e.target.value)} 
+          placeholder="Inserisci il numero di anni" 
+        />
+        <div className="flex space-x-4 mt-4">
+          <button className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700" onClick={onBack}>Indietro</button>
+          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700" onClick={onNext}>Avanti</button>
+        </div>
       </div>
     );
   }
