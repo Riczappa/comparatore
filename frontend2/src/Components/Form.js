@@ -3,15 +3,15 @@ import Results from './Results';
 
 function FormStep1({ onNext, formData, updateFormData }) {
     return (
-        <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
+        <div className="p-6 max-w-sm mx-2 md:mx-auto  bg-white rounded-xl shadow-md flex items-center space-x-4">
         <div className="flex-shrink-0">
           {/* Icona o immagine se necessario */}
         </div>
         <div>
-          <h2 className="text-xl font-medium text-black">Quanto vuoi investire?</h2>
+          <h2 className="text-lg md:text-xl  font-medium text-black">Quanto vuoi investire?</h2>
           <input 
             type="number" 
-            className="mt-2 p-2 border rounded-lg w-full"
+            className="mt-1 md:mt-2 p-2 border rounded-lg w-full"
             value={formData.capital} 
             onChange={(e) => updateFormData('capital', e.target.value)} 
             placeholder="Inserisci l'importo" 
@@ -27,11 +27,11 @@ function FormStep1({ onNext, formData, updateFormData }) {
   
   function FormStep2({ onBack, onNext, formData, updateFormData}) {
     return (
-        <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center">
-        <h2 className="text-xl font-medium text-black">Per quanti anni vuoi investire?</h2>
+        <div className="p-6 max-w-sm mx-2 md:mx-auto bg-white rounded-xl shadow-md flex flex-col items-center">
+        <h2 className="text-lg md:text-xl font-medium text-black">Per quanti anni vuoi investire?</h2>
         <input 
           type="number" 
-          className="mt-2 p-2 border rounded-lg w-full"
+          className="mt-1 md:mt-2 p-2 border rounded-lg w-full"
           min="1"
           max="30"
           value={formData.years} 
