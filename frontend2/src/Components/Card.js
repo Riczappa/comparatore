@@ -24,26 +24,11 @@ function Card() {
     };
 
     fetchData();
-  }, []); // The empty array means this effect runs once on mount
+  }, [apiUrl]); // The empty array means this effect runs once on mount
 
 
 
-    const data = [{
-        image: santander_logo,
-        bank: 'Bank 1',
-        product: 'Product 1',
-        description: 'Description for product 1...',
-        // ... other details ...
-    },
-    {
-        image: 'https://example.com/image2.jpg',
-        bank: 'Bank 2',
-        product: 'Product 2',
-        description: 'Description for product 2...',
     
-    },
-
-    ];
 
     return (
         <div>
