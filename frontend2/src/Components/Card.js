@@ -3,16 +3,23 @@ import santander_logo from "../images/santander_logo.png"
 
 
 
-function Card() {
+function Card({formData}) {
   const [dataset,setDataset] = useState([])
+
 
   const apiUrl = process.env.REACT_APP_API_URL;
   
-  
+  const calcolaRendimento = (capitale, anni, tasso) => {
+    console.log(capitale, anni, tasso)
+    // Calcolo del rendimento (questo dipende dalla formula che vuoi usare)
+    // Esempio: calcolo con interesse composto
+    return capitale * Math.pow((1 + tasso), anni);
+  };
 
   useEffect(() => {
     
-    console.log('API URL:', process.env.REACT_APP_API_URL);
+    console.log(formData);
+    
 
     const fetchData = async () => {
       try {
@@ -33,6 +40,8 @@ function Card() {
     fetchData();
   }, [apiUrl]); // The empty array means this effect runs once on mount
 
+  console.log(dataset)
+
 
 
     
@@ -50,6 +59,8 @@ function Card() {
                 <h5 className="text-xl font-semibold"><span className="font-normal">Bank: </span>{item.bank}</h5>
                 <p className="text-gray-700"><span className="font-normal">Product: </span>{item.product}</p>
                 <p className="text-gray-700"><span className="font-normal">Description: </span>{item.description}</p>
+                <p className="text-gray-700"><span className="font-normal">rendimento tra {formData.years} anni: </span>{calcolaRendimento(formData.capital, formData.years, item.tasso).toFixed(2)} €</p>
+            
               </div>
               <button className="w-full bg-blue-500 text-white px-4 py-2 rounded self-end mt-auto">Prosegui</button> {/* Remove width classes, add self-end and mt-auto */}
             </div>

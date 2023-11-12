@@ -1,14 +1,14 @@
 import React from 'react'
 import Card from './Card';
 
-function Results() {
+function Results({formData}) {
    
   
     return (
         <div>
         <h1 className='text-3xl font-bold underline mb-4'>Comparatore di tariffe</h1>
         
-       <Card/>
+       <Card formData={formData}/>
       </div>
     )
   }

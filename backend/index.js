@@ -25,13 +25,15 @@ const bankingProducts = [
     bank: 'Bank A',
     product: 'Savings Account',
     image: 'https://example.com/bank-a-image.jpg',
-    description:"high tax"
+    description:"high tax",
+    tasso:0.10
   },
   {
     bank: 'Bank B',
     product: 'Checking Account',
     image: 'https://example.com/bank-b-image.jpg',
-    description:"high tax"
+    description:"high tax",
+    tasso: 0.05
   }
   
 ];
