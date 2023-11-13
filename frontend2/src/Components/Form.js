@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import Results from './Results';
 
-function FormStep1({ onNext, formData, updateFormData }) {
+function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) {
+
+    
     return (
         <div className="p-6 max-w-sm mx-2 md:mx-auto  bg-white rounded-xl shadow-md flex items-center space-x-4">
         <div className="flex-shrink-0">
@@ -16,6 +18,12 @@ function FormStep1({ onNext, formData, updateFormData }) {
             onChange={(e) => updateFormData('capital', e.target.value)} 
             placeholder="Inserisci l'importo" 
           />
+           <div className="flex space-x-2 mt-2">
+    {/* Esempi di suggerimenti */}
+    <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('capital', 5000)}>€5.000</button>
+    <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('capital', 10000)}>€10.000</button>
+    <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('capital', 20000)}>€20.000</button>
+  </div>
           <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"  onClick={onNext}>Avanti</button>
         </div>
       </div>
@@ -25,7 +33,7 @@ function FormStep1({ onNext, formData, updateFormData }) {
 
 
   
-  function FormStep2({ onBack, onNext, formData, updateFormData}) {
+  function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionClick}) {
     return (
         <div className="p-6 max-w-sm mx-2 md:mx-auto bg-white rounded-xl shadow-md flex flex-col items-center">
         <h2 className="text-lg md:text-xl font-medium text-black">Per quanti anni vuoi investire?</h2>
@@ -38,6 +46,12 @@ function FormStep1({ onNext, formData, updateFormData }) {
           onChange={(e) => updateFormData('years', e.target.value)} 
           placeholder="Inserisci il numero di anni" 
         />
+         <div className="flex space-x-2 mt-2">
+    {/* Esempi di suggerimenti */}
+    <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('years', 2)}>2 yrs</button>
+    <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('years', 5)}>5 yrs</button>
+    <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('years', 10)}>10 yrs</button>
+  </div>
         <div className="flex space-x-4 mt-4">
           <button className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700" onClick={onBack}>Indietro</button>
           <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700" onClick={onNext}>Avanti</button>
@@ -64,7 +78,11 @@ function Form() {
       const updateFormData = (key, value) => {
         setFormData(prevState => ({ ...prevState, [key]: value }));
       };
-
+      const handleSuggestionClick = (field, value) => {
+        updateFormData(field, value);
+        nextStep()
+      };
+      
 
     useEffect(() => {
         const handleKeyPress = (event) => {
@@ -83,8 +101,8 @@ function Form() {
 
   return (
     <div>
-    {currentStep === 1 && <FormStep1 onNext={nextStep} formData={formData} updateFormData={updateFormData} />}
-    {currentStep === 2 && <FormStep2 onBack={prevStep} onNext={nextStep} formData={formData} updateFormData={updateFormData} />}
+    {currentStep === 1 && <FormStep1 onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
+    {currentStep === 2 && <FormStep2 onBack={prevStep} onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
     {currentStep === 3 && <Results formData={formData}/>}
   </div>
   )
