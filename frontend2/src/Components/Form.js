@@ -5,12 +5,9 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
 
     
     return (
-        <div className="p-6 max-w-sm mx-2 md:mx-auto  bg-white rounded-xl shadow-md flex items-center space-x-4">
-        <div className="flex-shrink-0">
-          {/* Icona o immagine se necessario */}
-        </div>
-        <div>
-          <h2 className="text-lg md:text-xl  font-medium text-black">Quanto vuoi investire?</h2>
+        <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center">
+        <div className="w-full text-center">
+          <h2 className="text-lg md:text-xl font-medium text-black">Quanto vuoi investire?</h2>
           <input 
             type="number" 
             className="mt-1 md:mt-2 p-2 border rounded-lg w-full"
@@ -18,16 +15,15 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
             onChange={(e) => updateFormData('capital', e.target.value)} 
             placeholder="Inserisci l'importo" 
           />
-           <div className="flex space-x-2 mt-2">
-    {/* Esempi di suggerimenti */}
-    <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('capital', 5000)}>€5.000</button>
-    <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('capital', 10000)}>€10.000</button>
-    <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('capital', 20000)}>€20.000</button>
-  </div>
-          <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"  onClick={onNext}>Avanti</button>
+          <div className="flex space-x-2 mt-2 justify-center">
+            {/* Esempi di suggerimenti */}
+            <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('capital', 5000)}>€5.000</button>
+            <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('capital', 10000)}>€10.000</button>
+            <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('capital', 20000)}>€20.000</button>
+          </div>
+          <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700" onClick={onNext}>Avanti</button>
         </div>
-      </div>
-    );
+      </div>);
   }
   
 
@@ -36,7 +32,7 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
   function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionClick}) {
     return (
         <div className="p-6 max-w-sm mx-2 md:mx-auto bg-white rounded-xl shadow-md flex flex-col items-center">
-        <h2 className="text-lg md:text-xl font-medium text-black">Per quanti anni vuoi investire?</h2>
+        <h2 className="text-lg md:text-xl font-medium text-black text-center">Per quanti anni vuoi investire?</h2>
         <input 
           type="number" 
           className="mt-1 md:mt-2 p-2 border rounded-lg w-full"
@@ -61,7 +57,22 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
   }
   
 
+  function FormStep3({ onNext, formData, updateFormData, handleSuggestionClick }) {
 
+    
+    return (
+        <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md">
+          <div className='text-center'>
+            <h2 className="text-lg md:text-xl font-medium text-black">Capitale vincolato?</h2>
+            <div className="inline-flex space-x-2 mt-2 justify-center">
+              <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('vincolato', "si")}>si</button>
+              <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('vincolato', "no")}>no</button>
+              <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('vincolato', "indif")}>indifferente</button>
+            </div>
+          </div>
+        </div>
+      );
+  }
 
 function Form() {
 
@@ -103,7 +114,8 @@ function Form() {
     <div>
     {currentStep === 1 && <FormStep1 onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
     {currentStep === 2 && <FormStep2 onBack={prevStep} onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
-    {currentStep === 3 && <Results formData={formData}/>}
+    {currentStep === 3 && <FormStep3 onBack={prevStep} onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
+    {currentStep === 4 && <Results formData={formData}/>}
   </div>
   )
 }

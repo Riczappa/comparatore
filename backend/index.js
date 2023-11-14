@@ -24,15 +24,17 @@ const bankingProducts = [
   {
     bank: 'Illimity',
     product: 'Conto deposito Plus',
-    image: 'https://ibsintelligence.com/wp-content/uploads/2021/12/ibs_illimity-bank.jpg',
+    image: 'https://ml.globenewswire.com/Resource/Download/67167262-335a-4f11-90e0-d682b134e43f?size=3',
     description:"high tax",
+    vincolato:"si",
     tasso:0.10
   },
   {
     bank: 'Intesa San Paolo',
     product: 'Risparmio plus',
-    image: 'https://www.paolocrespi.eu/wp-content/uploads/2022/11/intesa-sanpaolo-squarelogo-610x407.png',
+    image: 'https://www.eng.it/resources/customer-logo/intesa/intesa-white.png',
     description:"high tax",
+    vincolato:"no",
     tasso: 0.05
   }
   
