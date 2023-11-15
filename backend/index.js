@@ -22,15 +22,7 @@ setInterval(keepServerAwake, 1500000);
 
 // Sample data
 const bankingProducts = [
-  {
-    bank: 'Illimity',
-    product: 'Conto deposito Plus',
-    image: 'https://ml.globenewswire.com/Resource/Download/67167262-335a-4f11-90e0-d682b134e43f?size=3',
-    description:"high tax",
-    vincolato:"si",
-    tasso:0.10,
-    link: "https://www.illimitybank.com/it/conto-deposito?utmcodes=SEARCH23&gad_source=1&gclid=CjwKCAiA9dGqBhAqEiwAmRpTC2pQsFwyhNS_S6F8Uh667_m7ORVnPAjAvXzIN1CqgSMq2kltQ_b7DhoCB1AQAvD_BwE&gclsrc=aw.ds"
-  },
+  
   {
     bank: 'Intesa San Paolo',
     product: 'Risparmio plus',
@@ -79,6 +71,26 @@ const bankingProducts = [
     link: "https://www.illimitybank.com/it/conto-deposito?utmcodes=SEARCH23&gad_source=1&gclid=CjwKCAiA9dGqBhAqEiwAmRpTC2pQsFwyhNS_S6F8Uh667_m7ORVnPAjAvXzIN1CqgSMq2kltQ_b7DhoCB1AQAvD_BwE&gclsrc=aw.ds"
   
   },
+  {
+    bank: 'Tinaba',
+    product: 'start svincolabile',
+    image: 'https://store.tinaba.it/static/logo_tinaba_colore_orizzontale-b7e95e37455e09d709fec579fae8523c.svg',
+    description:"start",
+    vincolato:"no",
+    tasso:{"6m": 0.018, "1yr": 0.020,"1.5yr": 0.025,"2yr": 0.0250},
+    link: "https://bancaprofilo.tinaba.it/conto-deposito"
+  
+  },
+  {
+    bank: 'Tinaba',
+    product: 'premium svincolabile',
+    image: 'https://store.tinaba.it/static/logo_tinaba_colore_orizzontale-b7e95e37455e09d709fec579fae8523c.svg',
+    description:"premium",
+    vincolato:"no",
+    tasso:{"6m": 0.035, "1yr": 0.040,"1.5yr": 0.045,"2yr": 0.04},
+    link: "https://bancaprofilo.tinaba.it/conto-deposito"
+  
+  },
 ];
 
 
@@ -86,9 +98,22 @@ const bankingProducts = [
 function calculateRendimento(product, formData) {
     let tasso;
 
-    
+    let maxYearAvailable = "2yr"; // Maximum year data available
+
+if (formData.years <= 0.5) {
+  tasso = product.tasso["6m"] ?? 0;
+} else if (formData.years <= 1) {
+  tasso = product.tasso["1yr"] ?? 0;
+} else if (formData.years <= 1.5) {
+  tasso = product.tasso["1.5yr"] ?? 0;
+} else {
+  // For years more than 1.5, check if the year's rate is available, otherwise default to the max available year's rate
+  let yearKey = formData.years + "yr";
+  tasso = product.tasso[yearKey] ?? product.tasso[maxYearAvailable];
+}
   
     // Select the appropriate rate based on formData.years
+    /*
     if (formData.years == 0.5) { // Less than or equal to 6 months
       tasso = product.tasso["6m"] ?? 0; // Default to 0 if not available
     } 
@@ -107,6 +132,23 @@ function calculateRendimento(product, formData) {
         tasso = product.tasso["2yr"] ?? 0; // Default to 0 if not available
       }
 
+      if (formData.years == 3) {
+        // For years more than 0.5, use the 1 year rate
+        tasso = product.tasso["3yr"] ?? product.tasso["2yr"]; // Default to 2 if not available
+      }
+      if (formData.years == 4) {
+        // For years more than 0.5, use the 1 year rate
+        tasso = product.tasso["4yr"] ?? product.tasso["3yr"]; // Default to 3 if not available
+      }
+      if (formData.years == 5) {
+        // For years more than 0.5, use the 1 year rate
+        tasso = product.tasso["5yr"] ?? product.tasso["4yr"]; // Default to 4 if not available
+      }
+      if (formData.years > 5) {
+        // For years more than 0.5, use the 1 year rate
+        tasso = product.tasso["5yr"] ?? product.tasso["4yr"]; // Default to 5 if not available
+      }
+      */
     // Compound Interest Calculation
     const principal = formData.capital;
     const timePeriods = formData.years;

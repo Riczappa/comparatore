@@ -117,13 +117,13 @@ function Card({ formData }) {
 
 
                   <p className='font-semibold text-xl'>{item.description}</p>
-                  <p className='font-semibold text-xl'>{Math.round(item.tasso_eff*100)}% </p>
+                  <p className='font-semibold text-xl'>{(item.tasso_eff*100).toFixed(2)}% </p>
                   <p className='font-semibold text-xl'>{item.vincolato}</p>
 
                 </div>
               </div>
 
-              <button className="w-1/3 bg-blue-500 h-10 text-white px-4 py-2 rounded ml-7 basis-1/5 ">Prosegui</button> {/* Remove width classes, add self-end and mt-auto */}
+              <button className="w-1/3 bg-blue-500 h-10 text-white px-4 py-2 rounded ml-7 basis-1/5  hover:border-green-500 hover:border-2">Prosegui</button> {/* Remove width classes, add self-end and mt-auto */}
 
 
             </div>
