@@ -23,14 +23,7 @@ setInterval(keepServerAwake, 1500000);
 // Sample data
 const bankingProducts = [
   
-  {
-    bank: 'Intesa San Paolo',
-    product: 'Risparmio plus',
-    image: 'https://www.inas.it/wp-content/uploads/2023/02/logo-intesa-san-paolo_2.png',
-    description:"high tax",
-    vincolato:"no",
-    tasso: 0.05
-  },
+  
   {
     bank: 'Illimity',
     product: 'basic vincolato',
