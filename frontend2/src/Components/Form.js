@@ -31,7 +31,7 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
   
   function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionClick}) {
     return (
-        <div className="p-6 max-w-sm mx-2 md:mx-auto bg-white rounded-xl shadow-md flex flex-col items-center">
+        <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center">
         <h2 className="text-lg md:text-xl font-medium text-black text-center">Per quanti anni vuoi investire?</h2>
         <input 
           type="number" 
