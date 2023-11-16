@@ -86,10 +86,10 @@ function Card({ formData }) {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-4 m-5 ">
+      <div className="grid grid-cols-1 gap-3 m-5 ">
         {filtdata.map((item, index) => (
-          <a href={item.link} target="_blank">
-          <div className="bg-white p-6 rounded-lg shadow-lg mx-auto md:max-w-[900px] w-full text-left centered-shadow" key={index}>
+          <a href={item.link} target="_blank" key={`link-${index}`}>
+          <div className="hidden md:block bg-white p-6 rounded-lg shadow-lg mx-auto md:max-w-[900px] w-full text-left centered-shadow" key={`desktop-${index}`}>
             <div className='flex flex-row space-x-6'>
               <div className='flex flex-col justify-between basis-1/5'> {/* Add justify-between */}
                 <img src={item.image} alt={item.bank} className="h-auto w-10 md:w-auto md:h-auto overflow-hidden rounded-lg" />
@@ -123,11 +123,42 @@ function Card({ formData }) {
                 </div>
               </div>
 
-              <button className="w-1/3 bg-blue-500 h-10 text-white px-4 py-2 rounded ml-7 basis-1/5  hover:border-green-500 hover:border-2">Prosegui</button> {/* Remove width classes, add self-end and mt-auto */}
+              <button className="w-1/3 bg-blue-500 h-10 text-white px-4 py-2 rounded ml-7 basis-1/5  hover:bg-blue-800">Prosegui</button> {/* Remove width classes, add self-end and mt-auto */}
 
 
             </div>
           </div>
+
+          {/*Mobile*/}
+          <div className="md:hidden bg-white p-4 rounded-lg shadow-lg mx-auto md:max-w-[900px] w-full text-left centered-shadow" key={`mobile-${index}`}>
+            <div className='grid grid-cols-2 auto-rows-auto gap-0'>
+              
+                <img src={item.image} alt={item.bank} className="  overflow-hidden rounded-lg pr-3" />
+                <div className='flex flex-col border border-red-500 shadow-lg shadow-red-500/50 rounded p-1'>
+                  <p className="text-xs">Guadagno lordo tra {formData.years} anni</p>
+
+                  <p className='font-bold text-xl '>{item.resa} €</p>
+                  </div>
+                  <h5 className="text-xl font-semibold border-b border-gray-800 pt-1"><span className="font-normal">Banca: </span>{item.bank}</h5>
+                  <p className="text-gray-700 border-b border-gray-800 pt-1"><span className="font-normal">Prodotto: </span>{item.product}</p>
+                  <p className="border-b border-gray-800">Description</p>
+                  <p className='font-semibold text-xl border-b border-gray-800'>{item.description}</p>
+                  <p className="border-b border-gray-800">Tasso annuo</p>
+                  <p className='font-semibold text-xl border-b border-gray-800'>{(item.tasso_eff*100).toFixed(2)}% </p>
+                  <p className="">vincolo</p>
+                  <p className='font-semibold text-xl'>{item.vincolato}</p>
+                
+
+
+              </div>
+               
+
+                             <button className="w-full bg-blue-500 h-10 text-white px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Prosegui</button> {/* Remove width classes, add self-end and mt-auto */}
+                             <button className="w-full bg-transparent h-10 text-black border border-blue-500 px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Mostra altro</button> {/* Remove width classes, add self-end and mt-auto */}
+
+            </div>
+          
+          
           </a>
         ))}
       </div>

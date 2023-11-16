@@ -21,7 +21,7 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
             <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('capital', 10000)}>€10.000</button>
             <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('capital', 20000)}>€20.000</button>
           </div>
-          <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700" onClick={onNext}>Avanti</button>
+          <button className="mt-4 px-4 py-2 bg-green-400 text-white rounded hover:bg-green-600" onClick={onNext}>Avanti</button>
         </div>
       </div>);
   }
@@ -49,8 +49,8 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
     <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('years', 10)}>10 yrs</button>
   </div>
         <div className="flex space-x-4 mt-4">
-          <button className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700" onClick={onBack}>Indietro</button>
-          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700" onClick={onNext}>Avanti</button>
+          <button className="px-4 py-2 bg-gray-300 text-white rounded hover:bg-gray-500" onClick={onBack}>Indietro</button>
+          <button className="px-4 py-2 bg-green-400 text-white rounded hover:bg-green-600" onClick={onNext}>Avanti</button>
         </div>
       </div>
     );
