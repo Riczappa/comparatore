@@ -6,6 +6,12 @@ import santander_logo from "../images/santander_logo.png"
 function Card({ formData }) {
   const [dataset, setDataset] = useState([])
   const [filtdata, setFiltdata] = useState([])
+  const [expanded, setExpanded] = useState(filtdata.map(() => false));
+
+  const toggleExpansion = (index) => {
+    console.log('Mostra altro clicked for index:', index)
+    setExpanded(expanded.map((item, idx) => (idx === index ? !item : item)));
+  };
 
 
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -79,7 +85,10 @@ function Card({ formData }) {
   }, [apiUrl,formData.vincolato]); // The empty array means this effect runs once on mount
 
   
-
+  useEffect(() => {
+    setExpanded(filtdata.map(() => false));
+  }, [filtdata]);
+  
 
 
 
@@ -153,9 +162,16 @@ function Card({ formData }) {
               </div>
                
 
-                             <button className="w-full bg-blue-500 h-10 text-white px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Prosegui</button> {/* Remove width classes, add self-end and mt-auto */}
-                             <button className="w-full bg-transparent h-10 text-black border border-blue-500 px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800" onClick={()=>window.location.href="https://www.google.com"}>Mostra altro</button> {/* Remove width classes, add self-end and mt-auto */}
+                             <button className="w-full bg-blue-500 h-10 text-white px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Prosegui</button> 
+                             <button className="w-full bg-transparent h-10 text-black border border-blue-500 px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-500"  onClick={(event) =>{event.preventDefault(); toggleExpansion(index)}}>Mostra altro</button> 
 
+           {/* Conditional content that is shown when the item is expanded */}
+           {expanded[index] && (
+              <div className="extra-content">
+                {/* Your additional content here */}
+                <p>More details about the product...</p>
+              </div>
+            )}
             </div>
           
           
