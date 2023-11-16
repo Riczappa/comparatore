@@ -154,7 +154,7 @@ function Card({ formData }) {
                
 
                              <button className="w-full bg-blue-500 h-10 text-white px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Prosegui</button> {/* Remove width classes, add self-end and mt-auto */}
-                             <button className="w-full bg-transparent h-10 text-black border border-blue-500 px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Mostra altro</button> {/* Remove width classes, add self-end and mt-auto */}
+                             <button className="w-full bg-transparent h-10 text-black border border-blue-500 px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800" onClick={()=>window.location.href="https://www.google.com"}>Mostra altro</button> {/* Remove width classes, add self-end and mt-auto */}
 
             </div>
           
