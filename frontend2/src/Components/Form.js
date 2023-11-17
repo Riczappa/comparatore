@@ -77,8 +77,21 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
 function Form() {
 
     const [currentStep, setCurrentstep] = useState(1)
-    const nextStep = () => setCurrentstep((prev)=>prev+1)
-    const prevStep = () => setCurrentstep((prev)=>prev-1)
+    const nextStep = () => {
+        setAnimClass('slide-out');
+        setTimeout(() => {
+          setCurrentstep((prev) => prev + 1);
+          setAnimClass('slide-in');
+        }, 500); // timeout duration should match the CSS animation duration
+      };
+      const prevStep = () => {
+        setAnimClass('slide-out');
+        setTimeout(() => {
+          setCurrentstep((prev) => prev - 1);
+          setAnimClass('slide-in');
+        }, 500);
+      };
+    const [animClass, setAnimClass] = useState('slide-in');
 
 
     const [formData, setFormData] = useState({
@@ -112,10 +125,18 @@ function Form() {
 
   return (
     <div>
+        <div className={animClass}>
     {currentStep === 1 && <FormStep1 onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
+    </div>
+    <div className={animClass}> 
     {currentStep === 2 && <FormStep2 onBack={prevStep} onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
+    </div>
+    <div className={animClass}>
     {currentStep === 3 && <FormStep3 onBack={prevStep} onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
+    </div>
+    <div className={animClass}>
     {currentStep === 4 && <Results formData={formData}/>}
+    </div>
   </div>
   )
 }

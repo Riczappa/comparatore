@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import santander_logo from "../images/santander_logo.png"
+import { hourglass } from 'ldrs'
+
+hourglass.register()
+
+// Default values shown
+
+
 
 
 
@@ -7,6 +13,7 @@ function Card({ formData }) {
   const [dataset, setDataset] = useState([])
   const [filtdata, setFiltdata] = useState([])
   const [expanded, setExpanded] = useState(filtdata.map(() => false));
+  const [isLoading, setIsLoading]=useState(true)
 
   const toggleExpansion = (index) => {
     console.log('Mostra altro clicked for index:', index)
@@ -62,6 +69,7 @@ function Card({ formData }) {
           throw new Error('Network response was not ok');
         }
         const json = await response.json();
+        setIsLoading(false)
         console.log(json)
         setDataset(json);
         const updatedFilteredData = filterData(json, formData.vincolato);
@@ -95,6 +103,13 @@ function Card({ formData }) {
 
   return (
     <div>
+      {isLoading && (<l-hourglass
+  size="40"
+  bg-opacity="0.1"
+  speed="1.75" 
+  color="black" 
+></l-hourglass>
+      )}
       <div className="grid grid-cols-1 gap-3 m-5 ">
         {filtdata.map((item, index) => (
           <a href={item.link} target="_blank" key={`link-${index}`}>
@@ -169,7 +184,16 @@ function Card({ formData }) {
            {expanded[index] && (
               <div className="extra-content">
                 {/* Your additional content here */}
-                <p>More details about the product...</p>
+                <div className='grid grid-cols-2'>
+                  <p className='border-b border-gray-800'>name</p>
+                  <p className='font-semibold border-b border-gray-800'>Des</p>
+                  <p className='border-b border-gray-800'>name</p>
+                  <p className='font-semibold border-b border-gray-800'>Des</p>
+                  <p className='border-b border-gray-800'>name</p>
+                  <p className='font-semibold border-b border-gray-800'>Des</p>
+                  <p className='border-b border-gray-800'>name</p>
+                  <p className='font-semibold border-b border-gray-800'>Des</p>
+                </div>
               </div>
             )}
             </div>
