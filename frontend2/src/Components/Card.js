@@ -103,12 +103,13 @@ function Card({ formData }) {
 
   return (
     <div>
-      {isLoading && (<l-hourglass
+      {isLoading && (<div className='mt-5'>
+        <l-hourglass
   size="40"
   bg-opacity="0.1"
   speed="1.75" 
   color="black" 
-></l-hourglass>
+></l-hourglass></div>
       )}
       <div className="grid grid-cols-1 gap-3 m-5 ">
         {filtdata.map((item, index) => (
