@@ -103,7 +103,7 @@ function Card({ formData }) {
 
   return (
     <div>
-      {isLoading && (<div className='mt-5'>
+      {isLoading && (<div className='mt-10'>
         <l-hourglass
   size="40"
   bg-opacity="0.1"
