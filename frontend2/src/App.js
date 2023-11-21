@@ -7,7 +7,7 @@ import Head from './Components/Head';
 function App() {
   return (
     <div className="App">
-      <div className='min-h-screen bg-green-400 p-1'>
+      <div className='min-h-screen bg-green-300 p-1'>
     <Head/>
      <Form/>
      
