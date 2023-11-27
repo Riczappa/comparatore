@@ -135,7 +135,7 @@ function Form() {
     {currentStep === 3 && <FormStep3 onBack={prevStep} onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
     </div>
     <div className={animClass}>
-    {currentStep === 4 && <Results formData={formData}/>}
+    {currentStep === 4 && <Results formData={formData} setFormData={setFormData}/>}
     </div>
   </div>
   )

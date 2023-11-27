@@ -1,14 +1,14 @@
 import React from 'react'
 import Card from './Card';
 
-function Results({formData}) {
+function Results({formData, setFormData}) {
    
   
     return (
         <div>
         
         
-       <Card formData={formData}/>
+       <Card formData={formData} setFormData={setFormData}/>
       </div>
     )
   }

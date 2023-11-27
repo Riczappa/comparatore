@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { hourglass } from 'ldrs'
+import Filter from "./Filter"
 
 hourglass.register()
 
@@ -9,7 +10,7 @@ hourglass.register()
 
 
 
-function Card({ formData }) {
+function Card({ formData,onFilterChange, setFormData }) {
   const [dataset, setDataset] = useState([])
   const [filtdata, setFiltdata] = useState([])
   const [expanded, setExpanded] = useState(filtdata.map(() => false));
@@ -23,12 +24,7 @@ function Card({ formData }) {
 
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  const calcolaRendimento = (capitale, anni, tasso) => {
-    
-    // Calcolo del rendimento (questo dipende dalla formula che vuoi usare)
-    // Esempio: calcolo con interesse composto
-    return capitale * Math.pow((1 + tasso), anni);
-  };
+  
 
 
   const filterData = (dataset, vincolato) => {
@@ -49,57 +45,64 @@ function Card({ formData }) {
     return filteredData;
 }
 
+
+const fetchData = async () => {
+  try {
+   
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const json = await response.json();
+    setIsLoading(false)
+    console.log(json)
+    setDataset(json);
+    const updatedFilteredData = filterData(json, formData.vincolato);
+    setFiltdata(updatedFilteredData);
+    
+  } catch (error) {
+    console.error('Error fetching data: ', error);
+  }
+};
+
+
   useEffect(() => {
 
     
 
-
-    const fetchData = async () => {
-      try {
-       
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const json = await response.json();
-        setIsLoading(false)
-        console.log(json)
-        setDataset(json);
-        const updatedFilteredData = filterData(json, formData.vincolato);
-        setFiltdata(updatedFilteredData);
-        
-      } catch (error) {
-        console.error('Error fetching data: ', error);
-      }
-    };
-
     fetchData();
-    
-  
-
-    console.log(filtdata)
-
-    
-
 
 
   }, [apiUrl,formData.vincolato]); // The empty array means this effect runs once on mount
 
   
+
+  const handleFilterChange = (newFormData) => {
+    // Aggiorna lo stato di formData con i nuovi valori ricevuti
+    setFormData(newFormData);
+    
+  };
+
+  useEffect(()=>{
+    fetchData()
+  },[formData])
+
+
+
+//setta espansione
   useEffect(() => {
     setExpanded(filtdata.map(() => false));
   }, [filtdata]);
   
 
-
-
+  
 
   return (
     <div>
@@ -111,9 +114,10 @@ function Card({ formData }) {
   color="black" 
 ></l-hourglass></div>
       )}
+      <Filter formData={formData} onFilterChange={handleFilterChange} />
       <div className="grid grid-cols-1 gap-3 m-5 ">
         {filtdata.map((item, index) => (
-          <a href={item.link} target="_blank" key={`link-${index}`}>
+          <a href={item.link} target="_blank" key={`link-${index}`} className='m-auto'>
           <div className="hidden md:block bg-white p-6 rounded-lg shadow-lg mx-auto md:max-w-[900px] w-full text-left centered-shadow" key={`desktop-${index}`}>
             <div className='flex flex-row space-x-6'>
               <div className='flex flex-col justify-between basis-1/5'> {/* Add justify-between */}
@@ -155,7 +159,7 @@ function Card({ formData }) {
           </div>
 
           {/*Mobile*/}
-          <div className="md:hidden bg-white p-4 rounded-lg shadow-lg mx-auto md:max-w-[900px] w-full text-left centered-shadow" key={`mobile-${index}`}>
+          <div className="md:hidden bg-white p-4 rounded-lg shadow-lg mx-auto  w-full text-left centered-shadow" key={`mobile-${index}`}>
             <div className='grid grid-cols-2 auto-rows-auto gap-0'>
               
                 <img src={item.image} alt={item.bank} className="  overflow-hidden rounded-lg pr-3" />
@@ -164,12 +168,12 @@ function Card({ formData }) {
 
                   <p className='font-bold text-xl '>{item.resa} €</p>
                   </div>
-                  <h5 className="text-xl font-semibold border-b border-gray-800 pt-1"><span className="font-normal">Banca: </span>{item.bank}</h5>
-                  <p className="text-gray-700 border-b border-gray-800 pt-1"><span className="font-normal">Prodotto: </span>{item.product}</p>
-                  <p className="border-b border-gray-800">Description</p>
-                  <p className='font-semibold text-xl border-b border-gray-800'>{item.description}</p>
-                  <p className="border-b border-gray-800">Tasso annuo</p>
-                  <p className='font-semibold text-xl border-b border-gray-800'>{(item.tasso_eff*100).toFixed(2)}% </p>
+                  <h5 className="text-xl font-semibold border-b border-gray-400 pt-1"><span className="font-normal">Banca: </span>{item.bank}</h5>
+                  <p className="text-gray-700 border-b border-gray-400 pt-1"><span className="font-normal">Prodotto: </span>{item.product}</p>
+                  <p className="border-b border-gray-400">Description</p>
+                  <p className='font-semibold text-xl border-b border-gray-400'>{item.description}</p>
+                  <p className="border-b border-gray-400">Tasso annuo</p>
+                  <p className='font-semibold text-xl border-b border-gray-400'>{(item.tasso_eff*100).toFixed(2)}% </p>
                   <p className="">vincolo</p>
                   <p className='font-semibold text-xl'>{item.vincolato}</p>
                 
