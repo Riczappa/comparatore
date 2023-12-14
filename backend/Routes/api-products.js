@@ -8,7 +8,7 @@ const bankingProducts = require("../Data/BankData")
 function calculateRendimento(product, formData) {
     let tasso;
 
-    let maxYearAvailable = "2yr"; // Maximum year data available
+    let maxYearAvailable = "4yr"; // Maximum year data available
 
 if (formData.years <= 0.5) {
   tasso = product.tasso["6m"] ?? 0;

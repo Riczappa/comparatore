@@ -8,7 +8,7 @@ function Filter({formData,onFilterChange}) {
 
     }
   return (
-    <div className='flex flex-row ml-5 mr-5 rounded-lg p-3 bg-white space-x-4'>
+    <div className='flex flex-row ml-5 mr-5 rounded-lg p-3 bg-white space-x-4 min-w-fit'>
       <div className='flex flex-col space-y-1'>
         <p className='text-left text-xs'>Capitale</p>
       <input className='flex-shrink w-full bg-transparent border border-green rounded pl-2'

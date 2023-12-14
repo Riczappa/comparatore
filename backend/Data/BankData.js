@@ -47,7 +47,7 @@ const bankingProducts = [
       image: 'https://store.tinaba.it/static/logo_tinaba_colore_orizzontale-b7e95e37455e09d709fec579fae8523c.svg',
       description:"start",
       vincolato:"no",
-      tasso:{"6m": 0.018, "1yr": 0.020,"1.5yr": 0.025,"2yr": 0.0250},
+      tasso:{"6m": 0.018, "1yr": 0.020,"1.5yr": 0.025,"2yr": 0.0250,"3yr": 0.0250,"4yr": 0.0250},
       link: "https://bancaprofilo.tinaba.it/conto-deposito"
     
     },
@@ -57,7 +57,7 @@ const bankingProducts = [
       image: 'https://store.tinaba.it/static/logo_tinaba_colore_orizzontale-b7e95e37455e09d709fec579fae8523c.svg',
       description:"premium",
       vincolato:"no",
-      tasso:{"6m": 0.035, "1yr": 0.040,"1.5yr": 0.045,"2yr": 0.04},
+      tasso:{"6m": 0.035, "1yr": 0.040,"1.5yr": 0.045,"2yr": 0.04,"3yr": 0.04,"4yr": 0.04},
       link: "https://bancaprofilo.tinaba.it/conto-deposito"
     
     },
