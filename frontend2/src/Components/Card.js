@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { hourglass } from 'ldrs'
 import Filter from "./Filter"
 
+
+
+
 hourglass.register()
 
 // Default values shown
@@ -117,7 +120,12 @@ const fetchData = async () => {
       <Filter formData={formData} onFilterChange={handleFilterChange} />
       <div className="grid grid-cols-1 gap-3 m-5 ">
         {filtdata.map((item, index) => (
-          <a href={item.link} target="_blank" key={`link-${index}`} className='m-auto'>
+          <a href={item.link} onClick={()=>{window.dataLayer.push({
+            'event': 'clickout',
+            'link': item.link,
+            'capitale': formData.capitale,
+            
+          });}} target="_blank" key={`link-${index}`} className='m-auto'>
           <div className="hidden md:block bg-white p-6 rounded-lg shadow-lg mx-auto md:max-w-[900px] w-full text-left centered-shadow" key={`desktop-${index}`}>
             <div className='flex flex-row space-x-6'>
               <div className='flex flex-col justify-between basis-1/5'> {/* Add justify-between */}
