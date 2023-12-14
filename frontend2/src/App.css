@@ -67,3 +67,15 @@
 .slide-out {
   animation: slideOut 0.5s forwards;
 }
+
+
+/* Add this to your CSS (e.g., in App.css) */
+.body-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}

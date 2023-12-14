@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Results from './Results';
+import AccountTypesInfo from './AccountTypesInfo';
 
 function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) {
 
@@ -61,6 +62,7 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
 
     
     return (
+        <div>
         <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md">
           <div className='text-center'>
             <h2 className="text-lg md:text-xl font-medium text-black">Capitale vincolato?</h2>
@@ -70,6 +72,8 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
               <button className="px-3 py-1 border rounded text-sm hover:bg-green-500 hover:text-white" onClick={() => handleSuggestionClick('vincolato', "indif")}>indifferente</button>
             </div>
           </div>
+        </div>
+        <AccountTypesInfo/>
         </div>
       );
   }
