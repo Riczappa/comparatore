@@ -123,7 +123,7 @@ const fetchData = async () => {
           <a href={item.link} onClick={()=>{window.dataLayer.push({
             'event': 'clickout',
             'link': item.link,
-            'capitale': formData.capitale,
+            'capitale': formData.capital,
             
           });}} target="_blank" key={`link-${index}`} className='m-auto'>
           <div className="hidden md:block bg-white p-6 rounded-lg shadow-lg mx-auto md:max-w-[900px] w-full text-left centered-shadow" key={`desktop-${index}`}>
