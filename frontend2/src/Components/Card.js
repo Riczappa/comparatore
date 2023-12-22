@@ -185,10 +185,11 @@ const fetchData = async () => {
 
                   <p className='font-bold text-xl '>{item.resa.toLocaleString()} €</p>
                   </div>
-                  <h5 className="text-xl font-semibold border-b border-gray-400 pt-1"><span className="font-normal">Banca: </span>{item.bank}</h5>
-                  <p className="text-gray-700 border-b border-gray-400 pt-1"><span className="font-normal">Prodotto: </span>{item.product}</p>
-                  <p className="border-b border-gray-400">Description</p>
-                  <p className='font-semibold text-xl border-b border-gray-400'>{item.description}</p>
+                  <h5 className="text-xl border-b border-gray-400 pt-1">Banca:</h5>
+                  <h5 className='text-xl font-semibold border-b border-gray-400 pt-1'>{item.bank}</h5>
+                  <p className="text-gray-700 border-b border-gray-400 pt-1">Prodotto:</p>
+                  <p className='font-semibold text-l border-b border-gray-400'>{item.product}</p>
+                 
                   <p className="border-b border-gray-400">Tasso annuo</p>
                   <p className='font-semibold text-xl border-b border-gray-400'>{(item.tasso_eff*100).toFixed(2)}% </p>
                   <p className="">vincolo</p>
