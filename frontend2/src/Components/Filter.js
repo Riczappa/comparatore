@@ -33,7 +33,7 @@ function Filter({formData,onFilterChange, handleVincolatoChange}) {
       />
     </div>
     </div>
-    <div className="flex flex-row space-x-4" onChange={(e) => handleVincolatoChange(e.target.value)}>
+    <div className="flex flex-row space-x-2" onChange={(e) => handleVincolatoChange(e.target.value)}>
       <input 
         type="radio" 
         value="si" 

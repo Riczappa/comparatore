@@ -183,7 +183,7 @@ const fetchData = async () => {
                 <div className='flex flex-col border border-red-500 shadow-lg shadow-red-500/50 rounded p-1'>
                   <p className="text-xs">Guadagno lordo tra {formData.years} anni</p>
 
-                  <p className='font-bold text-xl '>{item.resa} €</p>
+                  <p className='font-bold text-xl '>{item.resa.toLocaleString()} €</p>
                   </div>
                   <h5 className="text-xl font-semibold border-b border-gray-400 pt-1"><span className="font-normal">Banca: </span>{item.bank}</h5>
                   <p className="text-gray-700 border-b border-gray-400 pt-1"><span className="font-normal">Prodotto: </span>{item.product}</p>
