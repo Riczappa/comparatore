@@ -9,16 +9,18 @@ const apiproducts = require("./Routes/api-products")
 
 app.use("/",apiproducts)
 
-const keepAliveUrl = 'https://comparatore-backend.onrender.com'; // Replace with your server URL
+const keepAliveUrl = 'http://worldtimeapi.org/api/timezone/Europe/Rome'; // Replace with your server URL
 
-function keepServerAwake() {
-    axios.get(keepAliveUrl)
-        .then(res => console.log(`Response: ${res.statusText}`))
-        .catch(err => console.error(`Error: ${err}`));
+async function keepServerAwake() {
+  try{  
+  const response = await axios.get(keepAliveUrl)
+    console.log(response.data.datetime)
+  } catch (error) {
+    console.log(error)
+  }
 }
-
 // Call keepServerAwake every 25 minutes
-setInterval(keepServerAwake, 1500000);
+setInterval(keepServerAwake, 300000);
 
 
 
