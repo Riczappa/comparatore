@@ -208,14 +208,13 @@ const fetchData = async () => {
               <div className="extra-content">
                 {/* Your additional content here */}
                 <div className='grid grid-cols-2'>
-                  <p className='border-b border-gray-800'>name</p>
+                  <p className='border-b border-gray-800'>costo di apertura</p>
                   <p className='font-semibold border-b border-gray-800'>Des</p>
-                  <p className='border-b border-gray-800'>name</p>
+                  <p className='border-b border-gray-800'>costo di chiusura</p>
                   <p className='font-semibold border-b border-gray-800'>Des</p>
-                  <p className='border-b border-gray-800'>name</p>
+                  <p className='border-b border-gray-800'>requisiti minimi</p>
                   <p className='font-semibold border-b border-gray-800'>Des</p>
-                  <p className='border-b border-gray-800'>name</p>
-                  <p className='font-semibold border-b border-gray-800'>Des</p>
+                
                 </div>
               </div>
             )}
