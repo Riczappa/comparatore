@@ -79,3 +79,51 @@
 .content {
   flex: 1;
 }
+
+
+.suggestion-button {
+  padding: 0.5rem 1rem; /* Adjust padding as needed */
+  border: 1px solid transparent; /* Adjust border as needed */
+  border-radius: 0.25rem; /* Rounded corners */
+  background-color: #f3f4f6; /* Light gray background */
+  color: #1f2937; /* Dark text color */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  /* Hover state */
+  &:hover {
+    background-color: #10b981; /* Green background on hover */
+    color: white; /* White text on hover */
+  }
+}
+
+
+/* In your CSS file */
+.back-button {
+  padding: 0.5rem 1rem; /* Adjust padding as needed */
+  background-color: #a0aec0; /* Gray background */
+  color: white; /* White text */
+  border-radius: 0.25rem; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  /* Hover state */
+  &:hover {
+    background-color: #718096; /* Darker gray on hover */
+  }
+}
+
+.next-button {
+  padding: 0.5rem 1rem; /* Adjust padding as needed */
+  background-color: #48bb78; /* Green background */
+  color: white; /* White text */
+  border-radius: 0.25rem; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  /* Hover state */
+  &:hover {
+    background-color: #38a169; /* Darker green on hover */
+  }
+}
