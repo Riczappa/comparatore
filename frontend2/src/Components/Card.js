@@ -13,7 +13,7 @@ hourglass.register()
 
 
 
-function Card({ formData,onFilterChange, setFormData }) {
+function Card({ formData, setFormData }) {
   const [dataset, setDataset] = useState([])
   const [filtdata, setFiltdata] = useState([])
   const [expanded, setExpanded] = useState(filtdata.map(() => false));
@@ -22,6 +22,7 @@ function Card({ formData,onFilterChange, setFormData }) {
   const toggleExpansion = (index) => {
     console.log('Mostra altro clicked for index:', index)
     setExpanded(expanded.map((item, idx) => (idx === index ? !item : item)));
+
   };
 
 
@@ -77,13 +78,8 @@ const fetchData = async () => {
 
 
   useEffect(() => {
-
-    
-
     fetchData();
-
-
-  }, [apiUrl,formData.vincolato]); // The empty array means this effect runs once on mount
+  }, [apiUrl,formData.vincolato]); 
 
   
 
@@ -92,6 +88,15 @@ const fetchData = async () => {
     setFormData(newFormData);
     
   };
+
+
+  const handleVincolatoChange = (newVincolato) => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      vincolato: newVincolato
+    }));
+  };
+  
 
   useEffect(()=>{
     fetchData()
@@ -109,6 +114,11 @@ const fetchData = async () => {
 
   return (
     <div>
+     
+      <Filter formData={formData} onFilterChange={handleFilterChange} handleVincolatoChange={handleVincolatoChange}/>
+ 
+
+
       {isLoading && (<div className='mt-10'>
         <l-hourglass
   size="40"
@@ -117,8 +127,7 @@ const fetchData = async () => {
   color="black" 
 ></l-hourglass></div>
       )}
-      <Filter formData={formData} onFilterChange={handleFilterChange} />
-      <div className="grid grid-cols-1 gap-3 m-5 ">
+      <div className="grid grid-cols-1 gap-3 m-1 ">
         {filtdata.map((item, index) => (
           <a href={item.link} onClick={()=>{window.dataLayer.push({
             'event': 'clickout',
@@ -131,7 +140,7 @@ const fetchData = async () => {
               <div className='flex flex-col justify-between basis-1/5'> {/* Add justify-between */}
                 <img src={item.image} alt={item.bank} className="h-auto w-10 md:w-auto md:h-auto overflow-hidden rounded-lg" />
                 <div className='flex flex-col border border-red-500 shadow-lg shadow-red-500/50 rounded p-1'>
-                  <p className="text-xs">Guadagno lordo tra {formData.years} anni</p>
+                  <p className="text-xs overflow-auto">Guadagno lordo tra {formData.years} anni</p>
 
                   <p className='font-bold text-xl '>{item.resa} €</p>
 
@@ -167,10 +176,10 @@ const fetchData = async () => {
           </div>
 
           {/*Mobile*/}
-          <div className="md:hidden bg-white p-4 rounded-lg shadow-lg mx-auto  w-full text-left centered-shadow" key={`mobile-${index}`}>
+          <div className="md:hidden bg-white p-3 rounded-lg shadow-lg mx-auto  w-full text-left centered-shadow" key={`mobile-${index}`}>
             <div className='grid grid-cols-2 auto-rows-auto gap-0'>
               
-                <img src={item.image} alt={item.bank} className="  overflow-hidden rounded-lg pr-3" />
+                <img src={item.image} alt={item.bank} className="  overflow-hidden rounded-lg pr-3"  />
                 <div className='flex flex-col border border-red-500 shadow-lg shadow-red-500/50 rounded p-1'>
                   <p className="text-xs">Guadagno lordo tra {formData.years} anni</p>
 
@@ -191,7 +200,7 @@ const fetchData = async () => {
                
 
                              <button className="w-full bg-blue-500 h-10 text-white px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Prosegui</button> 
-                             <button className="w-full bg-transparent h-10 text-black border border-blue-500 px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-500"  onClick={(event) =>{event.preventDefault(); toggleExpansion(index)}}>Mostra altro</button> 
+                             <button className="w-full bg-white text-blue-500  px-4 py-2 rounded mt-2 hover:text-blue-600 underline-offset-2 underline"  onClick={(event) =>{event.preventDefault(); toggleExpansion(index)}}> {expanded[index] ? 'Mostra meno' : 'Mostra altro'}</button> 
 
            {/* Conditional content that is shown when the item is expanded */}
            {expanded[index] && (
