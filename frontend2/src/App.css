@@ -99,20 +99,21 @@
 }
 
 
-/* In your CSS file */
 .back-button {
   padding: 0.5rem 1rem; /* Adjust padding as needed */
-  background-color: #a0aec0; /* Gray background */
-  color: white; /* White text */
-  border-radius: 0.25rem; /* Rounded corners */
+  background-color: transparent; /* No background */
+  color: #4a5568; /* Text color */
+  border: none; /* No border */
+  text-decoration: underline; /* Underlined text */
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: color 0.3s;
 
   /* Hover state */
   &:hover {
-    background-color: #718096; /* Darker gray on hover */
+    color: #2d3748; /* Darker text on hover */
   }
 }
+
 
 .next-button {
   padding: 0.5rem 1rem; /* Adjust padding as needed */
@@ -127,3 +128,5 @@
     background-color: #38a169; /* Darker green on hover */
   }
 }
+
+

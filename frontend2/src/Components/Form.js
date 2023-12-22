@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import Results from './Results';
 import AccountTypesInfo from './AccountTypesInfo';
 
-function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) {
+function FormStep1({invalidAttempt, onNext, formData, updateFormData, handleSuggestionClick }) {
 
 
   return (
-    <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center"  style={{ height: "220px" }}>
+    <div className=" p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center justify-between"  style={{ height: "270px" }}>
       <div className="w-full text-center">
         <h2 className="text-lg md:text-xl font-medium text-black">Quanto vuoi investire?</h2>
        
@@ -18,13 +18,19 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
         </div>
         <input
           type="number"
-          className="mt-2 p-2 border rounded-lg w-full"
+          className="mt-2 p-2 border rounded-lg w-64"
           value={formData.capital}
           onChange={(e) => updateFormData('capital', e.target.value)}
-          placeholder="Oppure selezionalo manualmente"
+          placeholder="Oppure scrivi l'importo"
         />
-        <button className=" next-button mt-4" onClick={onNext}>Avanti</button>
-      </div>
+         {invalidAttempt && formData.capital === '' && 
+        <div style={{ color: 'red' }}>Seleziona l'importo per continuare</div>
+      }
+      <div className='absolute inset-x-0 bottom-5'>
+        <button className="next-button mt-4" onClick={onNext}>Avanti</button>
+        </div>
+        </div>
+      
     </div>);
 }
 
@@ -33,7 +39,7 @@ function FormStep1({ onNext, formData, updateFormData, handleSuggestionClick }) 
 
 function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionClick }) {
   return (
-    <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center"  style={{ height: "220px" }}>
+    <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center"  style={{ height: "270px" }}>
       <h2 className="text-lg md:text-xl font-medium text-black text-center">Per quanti anni vuoi investire?</h2>
      
       <div className="flex space-x-2 mt-2">
@@ -52,9 +58,9 @@ function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionC
         onChange={(e) => updateFormData('years', e.target.value)}
         placeholder="Oppure Inserisci manualmente"
       />
-      <div className="flex space-x-4 mt-4">
-        <button className="next-button" onClick={onBack}>Indietro</button>
-        <button className="back-button" onClick={onNext}>Avanti</button>
+      <div className="absolute bottom-5 flex space-x-4 mt-4">
+        <button className="back-button" onClick={onBack}>Indietro</button>
+        <button className="next-button" onClick={onNext}>Avanti</button>
       </div>
     </div>
   );
@@ -66,7 +72,7 @@ function FormStep3({ onBack, onNext, formData, updateFormData, handleSuggestionC
 
   return (
     <div>
-      <div className="flex flex-col justify-between p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md" style={{ height: "220px" }}>
+      <div className="flex flex-col items-center p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md" style={{ height: "270px" }}>
         <div className='flex-grow text-center'>
           <h2 className="text-lg md:text-xl font-medium text-black">Capitale vincolato?</h2>
           <div className="inline-flex space-x-2 mt-2 justify-center">
@@ -75,9 +81,9 @@ function FormStep3({ onBack, onNext, formData, updateFormData, handleSuggestionC
             <button className="suggestion-button" onClick={() => handleSuggestionClick('vincolato', "indif")}>indifferente</button>
           </div>
         </div>
-        <div className="flex justify-center space-x-4 mt-4">
-          <button className="next-button" onClick={onBack}>Indietro</button>
-          <button className="back-button" onClick={onNext}>Avanti</button>
+        <div className="relative bottom-0  flex space-x-4 mt-4">
+          <button className="back-button" onClick={onBack}>Indietro</button>
+          <button className="next-button" onClick={onNext}>Avanti</button>
         </div>
       </div>
 
@@ -89,7 +95,16 @@ function FormStep3({ onBack, onNext, formData, updateFormData, handleSuggestionC
 function Form() {
 
   const [currentStep, setCurrentstep] = useState(1)
+  const [invalidAttempt, setInvalidAttempt] = useState(false);
+
   const nextStep = () => {
+    if ((currentStep === 1 && formData.capital === '') || 
+    (currentStep === 2 && formData.years === ''))  {
+      // Se il campo capitale è vuoto, non fare nulla
+      setInvalidAttempt(true)
+      return;
+    }
+    setInvalidAttempt(false)
     setAnimClass('slide-out');
     setTimeout(() => {
       setCurrentstep((prev) => prev + 1);
@@ -107,16 +122,22 @@ function Form() {
 
 
   const [formData, setFormData] = useState({
-    inputValue: '',
-    years: ''
+    capital:"",
+    years: '',
+    vincolato:"indif"
   });
 
   const updateFormData = (key, value) => {
     setFormData(prevState => ({ ...prevState, [key]: value }));
   };
   const handleSuggestionClick = (field, value) => {
+    setInvalidAttempt(false)
     updateFormData(field, value);
-    nextStep()
+    setAnimClass('slide-out');
+    setTimeout(() => {
+      setCurrentstep((prev) => prev + 1);
+      setAnimClass('slide-in');
+    }, 500);
   };
 
 
@@ -138,10 +159,10 @@ function Form() {
   return (
     <div className='p-2'>
       <div className={animClass}>
-        {currentStep === 1 && <FormStep1 onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
+        {currentStep === 1 && <FormStep1 invalidAttempt={invalidAttempt} onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
       </div>
       <div className={animClass}>
-        {currentStep === 2 && <FormStep2 onBack={prevStep} onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
+        {currentStep === 2 && <FormStep2 invalidAttempt={invalidAttempt} onBack={prevStep} onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
       </div>
       <div className={animClass}>
         {currentStep === 3 && <FormStep3 onBack={prevStep} onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
