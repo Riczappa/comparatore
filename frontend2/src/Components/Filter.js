@@ -19,7 +19,7 @@ function Filter({formData,onFilterChange, handleVincolatoChange}) {
     { value: 12 },
     { value: 18 },
     { value: 24 },
-    { value: 32 },]
+    { value: 36 },]
 
 
 
@@ -46,7 +46,7 @@ function Filter({formData,onFilterChange, handleVincolatoChange}) {
         defaultValue={formData.months}
         marks={marks}
         min={6}
-        max={32}
+        max={36}
         step={null}
       
         valueLabelDisplay="auto"

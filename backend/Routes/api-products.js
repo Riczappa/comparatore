@@ -18,8 +18,8 @@ if (formData.months <= 6) {
   tasso = product.tasso["18"] ?? 0;
 } else if (formData.months <= 24) {
   tasso = product.tasso["24"] ?? 0;
-} else if (formData.months <= 32) {
-  tasso = product.tasso["32"] ?? 0;
+} else if (formData.months <= 36) {
+  tasso = product.tasso["36"] ?? 0;
 } else {
   // For years more than 1.5, check if the year's rate is available, otherwise default to the max available year's rate
   let monthKey = formData.months;
