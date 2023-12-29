@@ -40,13 +40,15 @@ function FormStep1({invalidAttempt, onNext, formData, updateFormData, handleSugg
 function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionClick }) {
   return (
     <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center"  style={{ height: "270px" }}>
-      <h2 className="text-lg md:text-xl font-medium text-black text-center">Per quanti anni vuoi investire?</h2>
+      <h2 className="text-lg md:text-xl font-medium text-black text-center">Per mesi vuoi investire?</h2>
      
       <div className="flex space-x-2 mt-2">
         {/* Esempi di suggerimenti */}
-        <button className="suggestion-button" onClick={() => handleSuggestionClick('years', 2)}>2 yrs</button>
-        <button className="suggestion-button" onClick={() => handleSuggestionClick('years', 5)}>5 yrs</button>
-        <button className="suggestion-button" onClick={() => handleSuggestionClick('years', 10)}>10 yrs</button>
+        <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 6)}>6</button>
+        <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 12)}>12</button>
+        <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 18)}>18</button>
+        <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 24)}>24</button>
+        <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 36)}>36</button>
        
       </div>
       <input
@@ -55,7 +57,7 @@ function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionC
         min="1"
         max="30"
         value={formData.years}
-        onChange={(e) => updateFormData('years', e.target.value)}
+        onChange={(e) => updateFormData('months', e.target.value)}
         placeholder="Oppure Inserisci manualmente"
       />
       <div className="absolute bottom-5 flex space-x-4 mt-4">

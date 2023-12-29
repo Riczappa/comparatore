@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function Footer() {
     return (
@@ -7,16 +7,15 @@ function Footer() {
                 <p className="text-gray-700 text-sm">
                     &copy; {new Date().getFullYear()} Comparaconti.it All rights reserved.
                 </p>
-                <p className="text-gray-600 text-sm">
-                    
-                </p>
-                <p className="text-gray-600 text-sm">
-                    
-                </p>
+                <div className="text-gray-600 text-sm">
+                    <a href="/terms.pdf" target="_blank" className="hover:underline">Terms & Conditions</a>
+                </div>
+                <div className="text-gray-600 text-sm">
+                    <a href="/Privacypolicy.pdf" target="_blank" className="hover:underline">Privacy Policy</a>
+                </div>
             </div>
         </footer>
     );
 }
 
-
-export default Footer
+export default Footer;

@@ -127,7 +127,7 @@ const fetchData = async () => {
   color="black" 
 ></l-hourglass></div>
       )}
-      <div className="grid grid-cols-1 gap-3 m-1 ">
+      <div className="grid grid-cols-1 gap-3 m-0 ">
         {filtdata.map((item, index) => (
           <a href={item.link} onClick={()=>{window.dataLayer.push({
             'event': 'clickout',
@@ -140,7 +140,7 @@ const fetchData = async () => {
               <div className='flex flex-col justify-between basis-1/5'> {/* Add justify-between */}
                 <img src={item.image} alt={item.bank} className="h-auto w-10 md:w-auto md:h-auto overflow-hidden rounded-lg" />
                 <div className='flex flex-col border border-red-500 shadow-lg shadow-red-500/50 rounded p-1'>
-                  <p className="text-xs overflow-auto">Guadagno lordo tra {formData.years} anni</p>
+                  <p className="text-xs overflow-auto">Guadagno lordo tra {formData.months} mesi</p>
 
                   <p className='font-bold text-xl '>{item.resa} €</p>
 

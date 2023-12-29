@@ -1,14 +1,30 @@
 import React,{useState} from 'react'
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
+
+
 
 function Filter({formData,onFilterChange, handleVincolatoChange}) {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         onFilterChange({ ...formData, [name]: value });
-
-
+        
     }
+    const handleSliderChange = (event, newValue) => {
+      onFilterChange({ ...formData, months: newValue });
+  };
+
+  const marks = [
+    { value: 6 },
+    { value: 12 },
+    { value: 18 },
+    { value: 24 },
+    { value: 32 },]
+
+
+
   return (
-    <div className='flex flex-col ml-1 mr-1 mb-5 rounded-lg p-3 bg-white space-x-4 min-w-fit space-y-3'>
+    <div className='flex flex-col mx-auto mb-5 rounded-lg p-3 bg-white space-x-4 min-w-fit max-w-[900px] space-y-3'>
     <div className='flex flex-row space-x-2 '>
       <div className='flex flex-col space-y-1'>
         <p className='text-left text-xs'>Capitale</p>
@@ -21,16 +37,30 @@ function Filter({formData,onFilterChange, handleVincolatoChange}) {
         
       />
       </div>
-      <div className='flex flex-col space-y-1'>
-        <p className='text-left text-xs'>Anni:</p>
-      <input
+      <div className='flex flex-col space-y-0 pl-3'>
+        <p className='text-left text-xs'>Mesi:</p>
+
+        <Box sx={{ width: 200, paddingLeft:1, paddingRight:1}}>
+      <Slider
+        aria-label="Restricted values"
+        defaultValue={formData.months}
+        marks={marks}
+        min={6}
+        max={32}
+        step={null}
+      
+        valueLabelDisplay="auto"
+        onChange={handleSliderChange}
+      />
+    </Box>
+      {/*<input
         className='flex-shrink w-full bg-transparent border border-green-400 rounded pl-2'
         type="number"
-        name="years"
-        placeholder="Anni"
-        value={formData.years}
+        name="months"
+        placeholder="mesi"
+        value={formData.months}
         onChange={handleInputChange}
-      />
+  />*/}
     </div>
     </div>
     <div className="flex flex-row space-x-2" onChange={(e) => handleVincolatoChange(e.target.value)}>
