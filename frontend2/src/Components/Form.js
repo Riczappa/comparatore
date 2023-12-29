@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Results from './Results';
 import AccountTypesInfo from './AccountTypesInfo';
+import { ReactComponent as MoneyIcon } from "../images/MoneyIcon.svg"
+import {ReactComponent as TimeIcon} from "../images/TimeIcon.svg"
 
 function FormStep1({invalidAttempt, onNext, formData, updateFormData, handleSuggestionClick }) {
 
@@ -51,7 +53,8 @@ function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionC
         <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 36)}>36</button>
        
       </div>
-      <input
+      <TimeIcon className="max-w-full" />
+          {/*<input
         type="number"
         className="mt-1 md:mt-2 p-2 border rounded-lg w-64"
         min="1"
@@ -59,10 +62,10 @@ function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionC
         value={formData.years}
         onChange={(e) => updateFormData('months', e.target.value)}
         placeholder="Oppure Inserisci manualmente"
-      />
+  /> */}
       <div className="absolute bottom-5 flex space-x-4 mt-4">
         <button className="back-button" onClick={onBack}>Indietro</button>
-        <button className="next-button" onClick={onNext}>Avanti</button>
+     
       </div>
     </div>
   );
@@ -83,10 +86,10 @@ function FormStep3({ onBack, onNext, formData, updateFormData, handleSuggestionC
             <button className="suggestion-button" onClick={() => handleSuggestionClick('vincolato', "indif")}>indifferente</button>
           </div>
         </div>
-        <div className="relative bottom-0  flex space-x-4 mt-4">
+        <MoneyIcon className="mt-2 max-w-full"></MoneyIcon>
+        <div className="relative bottom-0  flex space-x-4 mt-1">
           <button className="back-button" onClick={onBack}>Indietro</button>
-          <button className="next-button" onClick={onNext}>Avanti</button>
-        </div>
+          </div>
       </div>
 
       <AccountTypesInfo />

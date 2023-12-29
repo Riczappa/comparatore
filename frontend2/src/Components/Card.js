@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { hourglass } from 'ldrs'
 import Filter from "./Filter"
+import FeedIcon from '@mui/icons-material/Feed';
 
 
 
@@ -181,7 +182,7 @@ const fetchData = async () => {
               
                 <img src={item.image} alt={item.bank} className="  overflow-hidden rounded-lg pr-3"  />
                 <div className='flex flex-col border border-red-500 shadow-lg shadow-red-500/50 rounded p-1'>
-                  <p className="text-xs">Guadagno lordo tra {formData.years} anni</p>
+                  <p className="text-xs">Guadagno lordo tra {formData.months} mesi</p>
 
                   <p className='font-bold text-xl '>{item.resa.toLocaleString()} €</p>
                   </div>
@@ -215,6 +216,12 @@ const fetchData = async () => {
                   <p className='border-b border-gray-800'>requisiti minimi</p>
                   <p className='font-semibold border-b border-gray-800'>Des</p>
                 
+                </div>
+                <div className='mt-3'>
+                <a className='underline text-gray-500' href={item.foglietto}>
+                  <FeedIcon style={{color:"gray"}} />
+                  foglietto informativo
+                </a>
                 </div>
               </div>
             )}

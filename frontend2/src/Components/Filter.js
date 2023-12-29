@@ -69,19 +69,19 @@ function Filter({formData,onFilterChange, handleVincolatoChange}) {
         value="si" 
         name="vincolato" 
         checked={formData.vincolato === 'si'} 
-      /> Vincolati
+      />  Vincolati
       <input 
         type="radio" 
         value="no" 
         name="vincolato" 
         checked={formData.vincolato === 'no'} 
-      /> Non vincolati
+      />  Non vincolati
       <input 
         type="radio" 
         value="indif" 
         name="vincolato" 
         checked={formData.vincolato === 'indif'} 
-      /> Entrambi
+      />  Entrambi
     </div>
     </div>
   )
