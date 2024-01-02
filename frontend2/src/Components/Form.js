@@ -3,6 +3,7 @@ import Results from './Results';
 import AccountTypesInfo from './AccountTypesInfo';
 import { ReactComponent as MoneyIcon } from "../images/MoneyIcon.svg"
 import {ReactComponent as TimeIcon} from "../images/TimeIcon.svg"
+import Head from './Head';
 
 function FormStep1({invalidAttempt, onNext, formData, updateFormData, handleSuggestionClick }) {
 
@@ -41,6 +42,7 @@ function FormStep1({invalidAttempt, onNext, formData, updateFormData, handleSugg
 
 function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionClick }) {
   return (
+    
     <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center"  style={{ height: "270px" }}>
       <h2 className="text-lg md:text-xl font-medium text-black text-center">Per mesi vuoi investire?</h2>
      
@@ -163,6 +165,7 @@ function Form() {
 
   return (
     <div className='p-2'>
+      {currentStep >= 1 && currentStep <= 3 && <Head></Head>}
       <div className={animClass}>
         {currentStep === 1 && <FormStep1 invalidAttempt={invalidAttempt} onNext={nextStep} formData={formData} updateFormData={updateFormData} handleSuggestionClick={handleSuggestionClick} />}
       </div>
