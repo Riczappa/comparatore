@@ -44,7 +44,7 @@ function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionC
   return (
     
     <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center"  style={{ height: "270px" }}>
-      <h2 className="text-lg md:text-xl font-medium text-black text-center">Per mesi vuoi investire?</h2>
+      <h2 className="text-lg md:text-xl font-medium text-black text-center">Per quanti mesi vuoi investire?</h2>
      
       <div className="flex space-x-2 mt-2">
         {/* Esempi di suggerimenti */}
