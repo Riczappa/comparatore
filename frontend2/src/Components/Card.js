@@ -143,7 +143,7 @@ const fetchData = async () => {
                 <div className='flex flex-col border border-red-500 shadow-lg shadow-red-500/50 rounded p-1'>
                   <p className="text-xs overflow-auto">Guadagno lordo tra {formData.months} mesi</p>
 
-                  <p className='font-bold text-xl '>{item.resa} €</p>
+                  <p className='font-bold text-4xl '>{item.resa} €</p>
 
                 </div>
               </div>
@@ -186,15 +186,15 @@ const fetchData = async () => {
 
                   <p className='font-bold text-xl '>{item.resa.toLocaleString()} €</p>
                   </div>
-                  <h5 className="text-xl border-b border-gray-400 pt-1">Banca:</h5>
-                  <h5 className='text-xl font-semibold border-b border-gray-400 pt-1'>{item.bank}</h5>
-                  <p className="text-gray-700 border-b border-gray-400 pt-1">Prodotto:</p>
-                  <p className='font-semibold text-l border-b border-gray-400'>{item.product}</p>
+                  <h5 className="text-xl border-b border-blue-200 pt-3  pb-3 ">Banca:</h5>
+                  <h5 className='text-xl font-semibold border-b border-blue-200 pt-3  pb-3'>{item.bank}</h5>
+                  <p className="text-gray-700 border-b border-blue-200 pt-3  pb-3">Prodotto:</p>
+                  <p className='font-semibold text-xl border-b border-blue-200 pt-3  pb-3'>{item.product}</p>
                  
-                  <p className="border-b border-gray-400">Tasso annuo</p>
-                  <p className='font-semibold text-xl border-b border-gray-400'>{(item.tasso_eff*100).toFixed(2)}% </p>
-                  <p className="">vincolo</p>
-                  <p className='font-semibold text-xl'>{item.vincolato}</p>
+                  <p className="border-b border-blue-200 pt-3  pb-3">Tasso annuo</p>
+                  <p className='font-semibold text-xl border-b border-blue-200 pt-3  pb-3'>{(item.tasso_eff*100).toFixed(2)}% </p>
+                  <p className="pt-3  pb-3">vincolo</p>
+                  <p className='font-semibold text-xl pt-3  pb-3'>{item.vincolato}</p>
                 
 
 
