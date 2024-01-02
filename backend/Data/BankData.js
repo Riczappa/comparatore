@@ -64,6 +64,88 @@ const bankingProducts = [
       link: "https://bancaprofilo.tinaba.it/conto-deposito"
     
     },
+    {
+      bank: 'Aixeda',
+      product: 'Banca Aixeda X risparmio vincolato',
+      image: 'https://www.zeroventiquattro.it/wp-content/uploads/2023/02/aidexa.jpg',
+      description:"premium",
+      vincolato:"si",
+      tasso:{"6": 0.05, "12": 0.05,"18": 0.055,"24": 0.055,"36": 0.05,"48": "n.a."},
+      link: "https://hb.aidexa.it/onboarding/fe/03625/aidexa/#/step/1"
+    
+    },
+    {
+      bank: 'Aixeda',
+      product: 'Banca Aixeda X risparmio libero',
+      image: 'https://www.zeroventiquattro.it/wp-content/uploads/2023/02/aidexa.jpg',
+      description:"premium",
+      vincolato:"no",
+      tasso:{"6": 0.04, "12": 0.04,"18": 0.04,"24": 0.04,"36": 0.04,"48": 0.04},
+      link: "https://hb.aidexa.it/onboarding/fe/03625/aidexa/#/step/1",
+      liquidazione: "ogni 3 mesi sul conto corrente"
+    
+    },
+    {
+      bank: 'Vivibanca',
+      product: 'Viviconto extra',
+      image: 'https://vivibanca.it/images/logo%20italia.png',
+      description:"premium",
+      vincolato:"si",
+      tasso:{"6": 0.0425, "12": 0.05,"18": 0.0525,"24": 0.055,"36": 0.05,"48": "n.a."},
+      link: "https://vivibanca.it/conto-deposito-viviconto",
+      liquidazione: "alla scadenza del vincolo di deposito insieme al rimborso del capitale"
+    
+    },
+    {
+      bank: 'Banca Ifis',
+      product: 'vincolato',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Nuovo_Logo_Banca_Ifis.jpg',
+      description:"premium",
+      vincolato:"si",
+      tasso:{"6": 0.0375, "12": 0.04,"18": 0.0425,"24": 0.050,"36": 0.045,"48": 0.045},
+      link: "https://www.bancaifis.it/rendimax-calcola-rendimento",
+      liquidazione: "anticipata all'attivazione se si sceglie 'Vincolato anticipato' oppure trimestrale posticipata se si sceglie 'Vincolato posticipato'",
+      costi_extra: "nessun costo di apertura o chiusura",
+      importo_minimo: 1000
+    
+    },
+    {
+      bank: 'Banca Ifis',
+      product: 'like',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Nuovo_Logo_Banca_Ifis.jpg',
+      description:"premium",
+      vincolato:"no",
+      tasso:{"6": 0.0125, "12": 0.0125,"18": 0.0125,"24": 0.0125,"36": 0.0125,"48": 0.0125},
+      link: "https://www.bancaifis.it/rendimax-calcola-rendimento",
+      liquidazione: "trimestrale",
+      costi_extra: "nessun costo di apertura o chiusura",
+      importo_minimo: 1000
+    
+    },
+    {
+      bank: 'Cherry Bank',
+      product: 'Cherry vincolato',
+      image: 'https://www.cherrybank.it/wp-content/uploads/2022/03/cherryBank.jpg',
+      description:"premium",
+      vincolato:"si",
+      tasso:{"6": 0.045, "12": 0.05,"18": 0.05,"24": 0.05,"36": 0.054,"48": 0.054},
+      link: "https://www.cherrybank.it/privati-e-famiglie/conto-deposito/",
+      liquidazione: "trimestrale",
+      costi_extra: "nessun costo di apertura o chiusura"
+    
+    },
+    {
+      bank: 'Cherry Bank',
+      product: 'Cherry box',
+      image: 'https://www.cherrybank.it/wp-content/uploads/2022/03/cherryBank.jpg',
+      description:"premium",
+      vincolato:"no",
+      tasso:{"6": 0.01, "12": 0.01,"18": 0.01,"24": 0.01,"36": 0.01,"48": 0.01},
+      link: "https://www.cherrybank.it/privati-e-famiglie/conto-deposito/",
+      liquidazione: "trimestrale",
+      costi_extra: "nessun costo di apertura o chiusura"
+    
+    },
   ];
 
   module.exports = bankingProducts
