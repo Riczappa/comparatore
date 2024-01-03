@@ -61,11 +61,11 @@
 }
 
 .slide-in {
-  animation: slideIn 0.5s forwards;
+  animation: slideIn 0.4s forwards;
 }
 
 .slide-out {
-  animation: slideOut 0.5s forwards;
+  animation: slideOut 0.4s forwards;
 }
 
 
