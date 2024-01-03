@@ -202,7 +202,7 @@ const fetchData = async () => {
                
 
                              <button className="w-full bg-mediumBlue h-10 text-white px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Prosegui</button> 
-                             <button className="w-full bg-white text-mediumBlue  px-4 py-2 rounded mt-2 hover:text-blue-600 underline-offset-2 underline"  onClick={(event) =>{event.preventDefault(); toggleExpansion(index)}}> {expanded[index] ? 'Mostra meno' : 'Mostra altro'}</button> 
+                             <button className="w-full bg-white text-mediumBlue  px-4 py-2 rounded mt-2 hover:text-mediumBlue underline-offset-2 underline"  onClick={(event) =>{event.preventDefault(); toggleExpansion(index)}}> {expanded[index] ? 'Mostra meno' : 'Mostra altro'}</button> 
 
            {/* Conditional content that is shown when the item is expanded */}
            {expanded[index] && (
@@ -210,15 +210,15 @@ const fetchData = async () => {
                 {/* Your additional content here */}
                 <div className='grid grid-cols-2 '>
                   <p className='mt-4'>costi apertura e chiusura</p>
-                  <p className='font-semibold  mt-4'>{item.costi_extra}</p>
+                  <p className='font-semibold  mt-4'>{item.costi_extra ? item.costi_extra : "-" }</p>
                   <p className='mt-4'>Liquidazione interessi</p>
-                  <p className='font-semibold mt-4'>{item.liquidazione}</p>
+                  <p className='font-semibold mt-4'>{item.liquidazione ? item.liquidazione : "-"}</p>
                   <p className='mt-4'>altre note</p>
                   <p className='font-semibold mt-4'>{item.note ? item.note : "-"}</p>
                 
                 </div>
                 <div className='mt-5'>
-                <a className='underline text-mediumBlue' href={item.foglietto}>
+                <a className='underline text-mediumBlue' target='_blank' href={item.foglietto}>
                   <FeedIcon style={{color:"#183B50"}} />
                   foglietto informativo
                 </a>
