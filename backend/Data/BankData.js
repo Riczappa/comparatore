@@ -4,7 +4,7 @@ const bankingProducts = [
     {
       bank: 'Illimity',
       product: 'basic vincolato',
-      image: '/loghibanche/Illimity.png',
+      image: '/Loghibanche/Illimity.png',
       description:"basic",
       vincolato:"si",
       tasso:{"6": 0.013, "12": 0.0325,"18": 0.035,"24": 0.04,"36": 0.05,"48": 0.05,"60": 0.05},
@@ -17,7 +17,7 @@ const bankingProducts = [
     {
       bank: 'Illimity',
       product: 'basic svincolato',
-      image: '/loghibanche/Illimity.png',
+      image: '/Loghibanche/Illimity.png',
       description:"basic",
       vincolato:"no",
       tasso:{"6": 0.008, "12": 0.0225,"18": 0.025,"24": 0.0325,"36": 0.0420,"48": 0.0420,"60": 0.0420},
@@ -27,7 +27,7 @@ const bankingProducts = [
     {
       bank: 'Illimity',
       product: 'premium vincolato',
-      image: '/loghibanche/Illimity.png',
+      image: '/Loghibanche/Illimity.png',
       description:"premium",
       vincolato:"si",
       tasso:{"6": 0.015, "12": 0.0350,"18": 0.0375,"24": 0.0450,"36": 0.0575,"48": 0.0575,"60": 0.0575},
