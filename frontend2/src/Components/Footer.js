@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../images/oak2.png'
+import Logo from '../images/Logo_thumb.png'
 
 function Footer() {
     return (
@@ -14,8 +14,8 @@ function Footer() {
             <a href="/contact" className="text-gray-600 text-sm hover:underline">Contact us</a>
         </div>
            {/* Left Column for Logo and Site Name */}
-           <div className="mb-0 md:mb-0 flex flex-row items-center">
-            <img src={Logo} alt="Logo" className="h-8 " /> {/* Replace logoPath with your logo's path */}
+           <div className="mt-4 md:mb-0 flex flex-row items-center">
+            <img src={Logo} alt="Logo" className="h-8 pr-3" /> {/* Replace logoPath with your logo's path */}
             <p className="text-gray-700 text-sm">
                 &copy; {new Date().getFullYear()} Miglioricontideposito.it All rights reserved.
             </p>

@@ -27,8 +27,8 @@ function Filter({formData,onFilterChange, handleVincolatoChange}) {
     <div className='flex flex-col mx-auto mb-5 rounded-lg p-3 bg-white space-x-4 min-w-fit max-w-[900px] space-y-3'>
     <div className='flex flex-row space-x-2 '>
       <div className='flex flex-col space-y-1'>
-        <p className='text-left text-xs'>Capitale</p>
-      <input className='flex-shrink w-full bg-transparent border border-green-400 rounded pl-2'
+        <p className='text-left text-s'>Capitale</p>
+      <input className='flex-shrink w-full bg-transparent border border-darkBlue rounded pl-2'
         type="number"
         name="capital"
         placeholder="Capitale"
@@ -38,7 +38,7 @@ function Filter({formData,onFilterChange, handleVincolatoChange}) {
       />
       </div>
       <div className='flex flex-col space-y-0 pl-3'>
-        <p className='text-left text-xs'>Mesi:</p>
+        <p className='text-left text-s'>Mesi:</p>
 
         <Box sx={{ width: 200, paddingLeft:1, paddingRight:1}}>
       <Slider
@@ -51,6 +51,17 @@ function Filter({formData,onFilterChange, handleVincolatoChange}) {
       
         valueLabelDisplay="auto"
         onChange={handleSliderChange}
+        sx={{
+          '& .MuiSlider-thumb': {
+            color: '#00161D', // Dark blue thumb
+          },
+          '& .MuiSlider-track': {
+            color: '#00161D', // Dark blue track
+          },
+          '& .MuiSlider-rail': {
+            color: '#183B50', // Another color for the rail, or use dark blue as well
+          },
+        }}
       />
     </Box>
       {/*<input
@@ -64,25 +75,41 @@ function Filter({formData,onFilterChange, handleVincolatoChange}) {
     </div>
     </div>
     <div className="flex flex-row space-x-2" onChange={(e) => handleVincolatoChange(e.target.value)}>
-      <input 
-        type="radio" 
-        value="si" 
-        name="vincolato" 
-        checked={formData.vincolato === 'si'} 
-      />  Vincolati
-      <input 
-        type="radio" 
-        value="no" 
-        name="vincolato" 
-        checked={formData.vincolato === 'no'} 
-      />  Non vincolati
-      <input 
-        type="radio" 
-        value="indif" 
-        name="vincolato" 
-        checked={formData.vincolato === 'indif'} 
-      />  Entrambi
-    </div>
+  {/* Wrap each radio button and its label in a div */}
+  <div className="flex items-center space-x-1"> {/* Adjust space between radio and label */}
+    <input 
+      type="radio" 
+      value="si" 
+      name="vincolato" 
+      checked={formData.vincolato === 'si'} 
+      className="radio-custom" // Tailwind class for custom color
+    />
+    <label className=" cursor-pointer">Vincolati</label>
+  </div>
+
+  <div className="flex items-center space-x-1">
+    <input 
+      type="radio" 
+      value="no" 
+      name="vincolato" 
+      checked={formData.vincolato === 'no'} 
+      className="radio-custom"
+    />
+    <label className=" cursor-pointer">Non vincolati</label>
+  </div>
+
+  <div className="flex items-center space-x-1">
+    <input 
+      type="radio" 
+      value="indif" 
+      name="vincolato" 
+      checked={formData.vincolato === 'indif'} 
+      className="radio-custom"
+    />
+    <label className=" cursor-pointer">Entrambi</label>
+  </div>
+</div>
+
     </div>
   )
 }

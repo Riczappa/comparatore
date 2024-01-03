@@ -159,7 +159,7 @@ const fetchData = async () => {
                 <div className="mt-4 grid grid-cols-3 gap-3">
 
                   <p className="">Description</p>
-                  <p className="">Tasso annuo</p>
+                  <p className="">Tasso annuo lordo</p>
                   <p className="">vincolo</p>
 
 
@@ -180,46 +180,46 @@ const fetchData = async () => {
           <div className="md:hidden bg-white p-3 rounded-lg shadow-lg mx-auto  w-full text-left centered-shadow" key={`mobile-${index}`}>
             <div className='grid grid-cols-2 auto-rows-auto gap-0'>
               
-                <img src={item.image} alt={item.bank} className="  overflow-hidden rounded-lg pr-3"  />
-                <div className='flex flex-col border border-red-500 shadow-lg shadow-red-500/50 rounded p-1'>
+                <img src={item.image} alt={item.bank} className="  overflow-hidden mt-1 pr-3"  />
+                <div className='flex flex-col border border-darkBlue shadow-lg shadow-darkBlue/50 rounded p-1'>
                   <p className="text-xs">Guadagno lordo tra {formData.months} mesi</p>
 
                   <p className='font-bold text-xl '>{item.resa.toLocaleString()} €</p>
                   </div>
-                  <h5 className="text-xl border-b border-blue-200 pt-3  pb-3 ">Banca:</h5>
-                  <h5 className='text-xl font-semibold border-b border-blue-200 pt-3  pb-3'>{item.bank}</h5>
-                  <p className="text-gray-700 border-b border-blue-200 pt-3  pb-3">Prodotto:</p>
-                  <p className='font-semibold text-xl border-b border-blue-200 pt-3  pb-3'>{item.product}</p>
+                  <h5 className="text-gray-700 border-b border-customGreen pt-5  pb-3 ">Banca:</h5>
+                  <h5 className='text-l font-semibold border-b border-customGreen pt-5  pb-3'>{item.bank}</h5>
+                  <p className="text-gray-700 border-b border-customGreen pt-3  pb-3">Prodotto:</p>
+                  <p className='font-semibold text-l border-b border-customGreen pt-3  pb-3'>{item.product}</p>
                  
-                  <p className="border-b border-blue-200 pt-3  pb-3">Tasso annuo</p>
-                  <p className='font-semibold text-xl border-b border-blue-200 pt-3  pb-3'>{(item.tasso_eff*100).toFixed(2)}% </p>
+                  <p className="border-b border-customGreen pt-3  pb-3">Tasso annuo lordo</p>
+                  <p className='font-semibold text-l border-b border-customGreen pt-3  pb-3'>{(item.tasso_eff*100).toFixed(2)}% </p>
                   <p className="pt-3  pb-3">vincolo</p>
-                  <p className='font-semibold text-xl pt-3  pb-3'>{item.vincolato}</p>
+                  <p className='font-semibold text-l pt-3  pb-3'>{item.vincolato}</p>
                 
 
 
               </div>
                
 
-                             <button className="w-full bg-blue-500 h-10 text-white px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Prosegui</button> 
-                             <button className="w-full bg-white text-blue-500  px-4 py-2 rounded mt-2 hover:text-blue-600 underline-offset-2 underline"  onClick={(event) =>{event.preventDefault(); toggleExpansion(index)}}> {expanded[index] ? 'Mostra meno' : 'Mostra altro'}</button> 
+                             <button className="w-full bg-mediumBlue h-10 text-white px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Prosegui</button> 
+                             <button className="w-full bg-white text-mediumBlue  px-4 py-2 rounded mt-2 hover:text-blue-600 underline-offset-2 underline"  onClick={(event) =>{event.preventDefault(); toggleExpansion(index)}}> {expanded[index] ? 'Mostra meno' : 'Mostra altro'}</button> 
 
            {/* Conditional content that is shown when the item is expanded */}
            {expanded[index] && (
               <div className="extra-content">
                 {/* Your additional content here */}
-                <div className='grid grid-cols-2'>
-                  <p className='border-b border-gray-800'>costo di apertura</p>
-                  <p className='font-semibold border-b border-gray-800'>Des</p>
-                  <p className='border-b border-gray-800'>costo di chiusura</p>
-                  <p className='font-semibold border-b border-gray-800'>Des</p>
-                  <p className='border-b border-gray-800'>requisiti minimi</p>
-                  <p className='font-semibold border-b border-gray-800'>Des</p>
+                <div className='grid grid-cols-2 '>
+                  <p className='mt-4'>costi apertura e chiusura</p>
+                  <p className='font-semibold  mt-4'>{item.costi_extra}</p>
+                  <p className='mt-4'>Liquidazione interessi</p>
+                  <p className='font-semibold mt-4'>{item.liquidazione}</p>
+                  <p className='mt-4'>altre note</p>
+                  <p className='font-semibold mt-4'>{item.note ? item.note : "-"}</p>
                 
                 </div>
-                <div className='mt-3'>
-                <a className='underline text-gray-500' href={item.foglietto}>
-                  <FeedIcon style={{color:"gray"}} />
+                <div className='mt-5'>
+                <a className='underline text-mediumBlue' href={item.foglietto}>
+                  <FeedIcon style={{color:"#183B50"}} />
                   foglietto informativo
                 </a>
                 </div>

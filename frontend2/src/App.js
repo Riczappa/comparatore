@@ -10,9 +10,9 @@ import HeaderLogo from './Components/HeaderLogo';
 function App() {
   return (
     <div className="App flex flex-col h-screen">
-      <div className='flex-grow bg-blue-100 p-1'>
+      <div className='flex-grow bg-customGreen p-1'>
         <HeaderLogo/>
-        <div className='mt-16'></div>
+        <div className='mt-14'></div>
         
         <Form />
       </div>

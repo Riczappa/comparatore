@@ -4,6 +4,7 @@ import AccountTypesInfo from './AccountTypesInfo';
 import { ReactComponent as MoneyIcon } from "../images/MoneyIcon.svg"
 import {ReactComponent as TimeIcon} from "../images/TimeIcon.svg"
 import Head from './Head';
+import YearsInfo from './YearsInfo';
 
 function FormStep1({invalidAttempt, onNext, formData, updateFormData, handleSuggestionClick }) {
 
@@ -30,7 +31,7 @@ function FormStep1({invalidAttempt, onNext, formData, updateFormData, handleSugg
         <div style={{ color: 'red' }}>Seleziona l'importo per continuare</div>
       }
       <div className='absolute inset-x-0 bottom-5'>
-        <button className="next-button mt-4" onClick={onNext}>Avanti</button>
+        <button className="next-button mt-4 " onClick={onNext}>Avanti</button>
         </div>
         </div>
       
@@ -42,7 +43,7 @@ function FormStep1({invalidAttempt, onNext, formData, updateFormData, handleSugg
 
 function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionClick }) {
   return (
-    
+    <div>
     <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center"  style={{ height: "270px" }}>
       <h2 className="text-lg md:text-xl font-medium text-black text-center">Per quanti mesi vuoi investire?</h2>
      
@@ -65,10 +66,13 @@ function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionC
         onChange={(e) => updateFormData('months', e.target.value)}
         placeholder="Oppure Inserisci manualmente"
   /> */}
-      <div className="absolute bottom-5 flex space-x-4 mt-4">
-        <button className="back-button" onClick={onBack}>Indietro</button>
+      <div className="bottom-5  flex space-x-4">
+      <button className="back-button" onClick={onBack}>Indietro</button>
      
       </div>
+     
+      </div>
+      <YearsInfo/>
     </div>
   );
 }
