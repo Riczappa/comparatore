@@ -9,7 +9,9 @@ const bankingProducts = [
       vincolato:"si",
       tasso:{"6": 0.013, "12": 0.0325,"18": 0.035,"24": 0.04,"36": 0.05,"48": 0.05,"60": 0.05},
       link: "https://www.illimitybank.com/it/conto-deposito?utmcodes=SEARCH23&gad_source=1&gclid=CjwKCAiA9dGqBhAqEiwAmRpTC2pQsFwyhNS_S6F8Uh667_m7ORVnPAjAvXzIN1CqgSMq2kltQ_b7DhoCB1AQAvD_BwE&gclsrc=aw.ds",
-      foglietto: "https://a.storyblok.com/f/186519/x/39f9fb197c/foglio-informativo-conto-deposito-illimity_19-12-2023.pdf"
+      foglietto: "https://a.storyblok.com/f/186519/x/39f9fb197c/foglio-informativo-conto-deposito-illimity_19-12-2023.pdf",
+      liquidazione: "n",
+      costi_extra: "nn"
     
     },
     {
