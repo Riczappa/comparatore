@@ -2,39 +2,50 @@ import React, { useState, useEffect } from 'react'
 import Results from './Results';
 import AccountTypesInfo from './AccountTypesInfo';
 import { ReactComponent as MoneyIcon } from "../images/MoneyIcon.svg"
-import {ReactComponent as TimeIcon} from "../images/TimeIcon.svg"
+import { ReactComponent as TimeIcon } from "../images/TimeIcon.svg"
 import Head from './Head';
 import YearsInfo from './YearsInfo';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-function FormStep1({invalidAttempt, onNext, formData, updateFormData, handleSuggestionClick }) {
+function FormStep1({ invalidAttempt, onNext, formData, updateFormData, handleSuggestionClick }) {
 
 
   return (
-    <div className=" p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center justify-between"  style={{ height: "270px" }}>
-      <div className="w-full text-center">
-        <h2 className="text-lg md:text-xl font-medium text-black">Quanto vuoi investire?</h2>
-       
-        <div className="flex space-x-2 mt-2 justify-center">
-          {/* Esempi di suggerimenti */}
-          <button className="suggestion-button" onClick={() => handleSuggestionClick('capital', 5000)}>€5.000</button>
-          <button className="suggestion-button" onClick={() => handleSuggestionClick('capital', 10000)}>€10.000</button>
-          <button className="suggestion-button" onClick={() => handleSuggestionClick('capital', 20000)}>€20.000</button>
+    <div>
+      <div className=" p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center justify-between" style={{ height: "270px" }}>
+        <div className="w-full text-center flex flex-col flex-grow">
+          <h2 className="text-lg md:text-xl font-medium text-black">Quanto vuoi investire?</h2>
+
+          <div className="flex space-x-2 mt-2 justify-center">
+            {/* Esempi di suggerimenti */}
+            <button className="suggestion-button" onClick={() => handleSuggestionClick('capital', 5000)}>€5.000</button>
+            <button className="suggestion-button" onClick={() => handleSuggestionClick('capital', 10000)}>€10.000</button>
+            <button className="suggestion-button" onClick={() => handleSuggestionClick('capital', 20000)}>€20.000</button>
+          </div>
+          <input
+            type="number"
+            className="mt-2 p-2 border rounded-lg w-64 mx-auto"
+            value={formData.capital}
+            onChange={(e) => updateFormData('capital', e.target.value)}
+            placeholder="Oppure scrivi l'importo"
+          />
+          {invalidAttempt && formData.capital === '' &&
+            <div style={{ color: 'red' }}>Seleziona l'importo per continuare</div>
+          }
+          <div className="flex-grow"></div>
+          <div className='flex justify-center'>
+            <button className="next-button mt-4 " onClick={onNext}>Avanti</button>
+          </div>
         </div>
-        <input
-          type="number"
-          className="mt-2 p-2 border rounded-lg w-64"
-          value={formData.capital}
-          onChange={(e) => updateFormData('capital', e.target.value)}
-          placeholder="Oppure scrivi l'importo"
+
+      </div>
+      <div className='mt-5 flex items-center justify-center'>
+        <KeyboardArrowUpIcon
+        sx={{color:'black', fontSize:40}}
         />
-         {invalidAttempt && formData.capital === '' && 
-        <div style={{ color: 'red' }}>Seleziona l'importo per continuare</div>
-      }
-      <div className='absolute inset-x-0 bottom-5'>
-        <button className="next-button mt-4 " onClick={onNext}>Avanti</button>
-        </div>
-        </div>
-      
+        <h1 className="  ml-2 text-2xl font-bold inline-block p-0">
+        Prova il nostro simulatore
+      </h1></div>
     </div>);
 }
 
@@ -44,20 +55,20 @@ function FormStep1({invalidAttempt, onNext, formData, updateFormData, handleSugg
 function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionClick }) {
   return (
     <div>
-    <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center"  style={{ height: "270px" }}>
-      <h2 className="text-lg md:text-xl font-medium text-black text-center">Per quanti mesi vuoi investire?</h2>
-     
-      <div className="flex space-x-2 mt-2">
-        {/* Esempi di suggerimenti */}
-        <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 6)}>6</button>
-        <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 12)}>12</button>
-        <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 18)}>18</button>
-        <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 24)}>24</button>
-        <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 36)}>36</button>
-       
-      </div>
-      <TimeIcon className="max-w-full" />
-          {/*<input
+      <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center" style={{ height: "270px" }}>
+        <h2 className="text-lg md:text-xl font-medium text-black text-center">Per quanti mesi vuoi investire?</h2>
+
+        <div className="flex space-x-2 mt-2">
+          {/* Esempi di suggerimenti */}
+          <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 6)}>6</button>
+          <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 12)}>12</button>
+          <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 18)}>18</button>
+          <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 24)}>24</button>
+          <button className="suggestion-button" onClick={() => handleSuggestionClick('months', 36)}>36</button>
+
+        </div>
+        <TimeIcon className="max-w-full" />
+        {/*<input
         type="number"
         className="mt-1 md:mt-2 p-2 border rounded-lg w-64"
         min="1"
@@ -66,13 +77,13 @@ function FormStep2({ onBack, onNext, formData, updateFormData, handleSuggestionC
         onChange={(e) => updateFormData('months', e.target.value)}
         placeholder="Oppure Inserisci manualmente"
   /> */}
-      <div className="bottom-5  flex space-x-4">
-      <button className="back-button" onClick={onBack}>Indietro</button>
-     
+        <div className="bottom-5  flex space-x-4">
+          <button className="back-button" onClick={onBack}>Indietro</button>
+
+        </div>
+
       </div>
-     
-      </div>
-      <YearsInfo/>
+      <YearsInfo />
     </div>
   );
 }
@@ -95,7 +106,7 @@ function FormStep3({ onBack, onNext, formData, updateFormData, handleSuggestionC
         <MoneyIcon className="mt-2 max-w-full"></MoneyIcon>
         <div className="relative bottom-0  flex space-x-4 mt-1">
           <button className="back-button" onClick={onBack}>Indietro</button>
-          </div>
+        </div>
       </div>
 
       <AccountTypesInfo />
@@ -109,8 +120,8 @@ function Form() {
   const [invalidAttempt, setInvalidAttempt] = useState(false);
 
   const nextStep = () => {
-    if ((currentStep === 1 && formData.capital === '') || 
-    (currentStep === 2 && formData.years === ''))  {
+    if ((currentStep === 1 && formData.capital === '') ||
+      (currentStep === 2 && formData.years === '')) {
       // Se il campo capitale è vuoto, non fare nulla
       setInvalidAttempt(true)
       return;
@@ -133,9 +144,9 @@ function Form() {
 
 
   const [formData, setFormData] = useState({
-    capital:"",
+    capital: "",
     years: '',
-    vincolato:"indif"
+    vincolato: "indif"
   });
 
   const updateFormData = (key, value) => {

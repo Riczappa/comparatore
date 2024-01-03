@@ -19,9 +19,11 @@ function Head() {
     </h1>
     <h1 className="ml-2 text-2xl font-bold bg-white mb-4 inline-block p-0">
        Gennaio 2024
-    </h1>
+    </h1></div>
+    
+    
 
-  </div></div>
+  </div>
   )
 }
 

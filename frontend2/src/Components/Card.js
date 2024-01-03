@@ -209,12 +209,12 @@ const fetchData = async () => {
               <div className="extra-content">
                 {/* Your additional content here */}
                 <div className='grid grid-cols-2 '>
-                  <p className='mt-4'>costi apertura e chiusura</p>
-                  <p className='font-semibold  mt-4'>{item.costi_extra ? item.costi_extra : "-" }</p>
-                  <p className='mt-4'>Liquidazione interessi</p>
-                  <p className='font-semibold mt-4'>{item.liquidazione ? item.liquidazione : "-"}</p>
-                  <p className='mt-4'>altre note</p>
-                  <p className='font-semibold mt-4'>{item.note ? item.note : "-"}</p>
+                  <p className='mt-4 text-s'>costi apertura e chiusura</p>
+                  <p className='font-semibold  mt-4 text-s'>{item.costi_extra ? item.costi_extra : "-" }</p>
+                  <p className='mt-4 text-s'>Liquidazione interessi</p>
+                  <p className='font-semibold mt-4 text-s'>{item.liquidazione ? item.liquidazione : "-"}</p>
+                  <p className='mt-4 text-s'>informazioni sulla banca</p>
+                  <p className='font-semibold mt-4 text-s'>{item.note ? item.note : "-"}</p>
                 
                 </div>
                 <div className='mt-5'>
