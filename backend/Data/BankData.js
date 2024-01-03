@@ -38,7 +38,7 @@ const bankingProducts = [
     {
       bank: 'Illimity',
       product: 'premium svincolato',
-      image: '/loghibanche/Illimity.png',
+      image: '/Loghibanche/Illimity.png',
       description:"premium",
       vincolato:"no",
       tasso:{"6": 0.01, "12": 0.0250,"18": 0.0275,"24": 0.0350,"36": 0.050,"48": 0.050,"60": 0.050},
@@ -49,7 +49,7 @@ const bankingProducts = [
     {
       bank: 'Tinaba',
       product: 'start svincolabile',
-      image: '/loghibanche/Tinaba.png',
+      image: '/Loghibanche/Tinaba.png',
       description:"start",
       vincolato:"no",
       tasso:{"6": 0.018, "12": 0.020,"18": 0.025,"24": 0.0250,"36": 0.0250,"48": 0.0250},
@@ -59,7 +59,7 @@ const bankingProducts = [
     {
       bank: 'Tinaba',
       product: 'premium svincolabile',
-      image: '/loghibanche/Tinaba.png',
+      image: '/Loghibanche/Tinaba.png',
       description:"premium",
       vincolato:"no",
       tasso:{"6": 0.035, "12": 0.040,"18": 0.045,"24": 0.04,"36": 0.04,"48": 0.04},
@@ -69,7 +69,7 @@ const bankingProducts = [
     {
       bank: 'Aixeda',
       product: 'Banca Aixeda X risparmio vincolato',
-      image: '/loghibanche/Aixeda.png',
+      image: '/Loghibanche/Aixeda.png',
       description:"premium",
       vincolato:"si",
       tasso:{"6": 0.05, "12": 0.05,"18": 0.055,"24": 0.055,"36": 0.05,"48": "n.a."},
@@ -79,7 +79,7 @@ const bankingProducts = [
     {
       bank: 'Aixeda',
       product: 'Banca Aixeda X risparmio libero',
-      image: '/loghibanche/Aixeda.png',
+      image: '/Loghibanche/Aixeda.png',
       description:"premium",
       vincolato:"no",
       tasso:{"6": 0.04, "12": 0.04,"18": 0.04,"24": 0.04,"36": 0.04,"48": 0.04},
@@ -90,7 +90,7 @@ const bankingProducts = [
     {
       bank: 'Vivibanca',
       product: 'Viviconto extra',
-      image: '/loghibanche/Vivibanca.png',
+      image: '/Loghibanche/Vivibanca.png',
       description:"premium",
       vincolato:"si",
       tasso:{"6": 0.0425, "12": 0.05,"18": 0.0525,"24": 0.055,"36": 0.05,"48": "n.a."},
@@ -101,7 +101,7 @@ const bankingProducts = [
     {
       bank: 'Banca Ifis',
       product: 'vincolato',
-      image: '/loghibanche/BancaIfis.png',
+      image: '/Loghibanche/BancaIfis.png',
       description:"premium",
       vincolato:"si",
       tasso:{"6": 0.0375, "12": 0.04,"18": 0.0425,"24": 0.050,"36": 0.045,"48": 0.045},
@@ -114,7 +114,7 @@ const bankingProducts = [
     {
       bank: 'Banca Ifis',
       product: 'like',
-      image: '/loghibanche/BancaIfis.png',
+      image: '/Loghibanche/BancaIfis.png',
       description:"premium",
       vincolato:"no",
       tasso:{"6": 0.0125, "12": 0.0125,"18": 0.0125,"24": 0.0125,"36": 0.0125,"48": 0.0125},
@@ -127,7 +127,7 @@ const bankingProducts = [
     {
       bank: 'Cherry Bank',
       product: 'Cherry vincolato',
-      image: '/loghibanche/Cherrybank.png',
+      image: '/Loghibanche/Cherrybank.png',
       description:"premium",
       vincolato:"si",
       tasso:{"6": 0.045, "12": 0.05,"18": 0.05,"24": 0.05,"36": 0.054,"48": 0.054},
@@ -139,7 +139,7 @@ const bankingProducts = [
     {
       bank: 'Cherry Bank',
       product: 'Cherry box',
-      image: '/loghibanche/Cherrybank.png',
+      image: '/Loghibanche/Cherrybank.png',
       description:"premium",
       vincolato:"no",
       tasso:{"6": 0.01, "12": 0.01,"18": 0.01,"24": 0.01,"36": 0.01,"48": 0.01},
