@@ -186,14 +186,14 @@ const fetchData = async () => {
           <div className="md:hidden bg-white p-3 rounded-lg shadow-lg mx-auto  w-full text-left centered-shadow" key={`mobile-${index}`}>
             <div className='grid grid-cols-2 auto-rows-auto gap-0'>
               
-                <img src={item.image} alt={item.bank} className="  overflow-hidden mt-1 pr-3"  />
+                <img src={item.image} alt={item.bank} className="  overflow-hidden mt-1 pr-5"  />
                 <div className='flex flex-col border border-darkBlue bg-darkBlue shadow-lg shadow-darkBlue/50 rounded p-1'>
                   <p className="text-xs text-white">Guadagno lordo tra {formData.months} mesi</p>
 
                   <p className='font-bold text-xl text-white '>{item.resa.toLocaleString()} €</p>
                   </div>
-                  <h5 className="text-gray-700 border-b border-customGreen pt-5  pb-3 ">Banca:</h5>
-                  <h5 className='text-l font-semibold border-b border-customGreen pt-5  pb-3'>{item.bank}</h5>
+                  <h5 className="text-gray-700 border-b border-customGreen pt-8  pb-3 ">Banca:</h5>
+                  <h5 className='text-l font-semibold border-b border-customGreen pt-8  pb-3'>{item.bank}</h5>
                   <p className="text-gray-700 border-b border-customGreen pt-3  pb-3">Prodotto:</p>
                   <p className='font-semibold text-l border-b border-customGreen pt-3  pb-3'>{item.product}</p>
                  
