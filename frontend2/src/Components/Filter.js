@@ -24,11 +24,11 @@ function Filter({ formData, onFilterChange, handleVincolatoChange }) {
 
 
   return (
-    <div className='bg-white rounded-lg'>
+    <div className='mx-auto bg-white rounded-lg max-w-[900px] '>
       <div className='bg-customGreen rounded-t-lg'>
         <h2 className='text-white font-semibold'>Filtri</h2>
       </div>
-      <div className='flex flex-col mx-auto mb-5  p-3  space-x-4 min-w-fit max-w-[900px] space-y-3'>
+      <div className='flex flex-col  mb-5  p-3  space-x-4 min-w-fit  space-y-3'>
       <div className='flex flex-row space-x-2 '>
         <div className='flex flex-col space-y-1'>
           <p className='text-left text-s'>Capitale</p>
