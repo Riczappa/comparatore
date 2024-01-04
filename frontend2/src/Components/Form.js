@@ -9,10 +9,18 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 function FormStep1({ invalidAttempt, onNext, formData, updateFormData, handleSuggestionClick }) {
 
+  const [shake, setShake] = useState(false);
+
+  const handleShake = () => {
+    setShake(true);
+    // Opzionale: rimuovi l'animazione dopo un certo tempo
+    setTimeout(() => setShake(false), 500); // Durata uguale all'animazione CSS
+  };
+
 
   return (
     <div>
-      <div className=" p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center justify-between" style={{ height: "270px" }}>
+      <div className={`p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex flex-col items-center justify-between ${shake ? "shaking" : ""}`}  style={{ height: "270px" }}>
         <div className="w-full text-center flex flex-col flex-grow">
           <h2 className="text-lg md:text-xl font-medium text-black">Quanto vuoi investire?</h2>
 
@@ -43,7 +51,7 @@ function FormStep1({ invalidAttempt, onNext, formData, updateFormData, handleSug
         <KeyboardArrowUpIcon
         sx={{color:'white', fontSize:40}}
         />
-        <h1 className=" text-white ml-2 text-2xl font-bold inline-block p-0">
+        <h1 className=" text-white ml-2 text-2xl font-bold inline-block p-0" onClick={handleShake}>
         Prova il nostro simulatore
       </h1></div>
     </div>);

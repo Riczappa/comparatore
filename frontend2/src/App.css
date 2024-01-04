@@ -68,6 +68,23 @@
   animation: slideOut 0.4s forwards;
 }
 
+/* Aggiungi questo nel tuo file CSS */
+@keyframes shake {
+  0% { transform: translateX(0px); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0px); }
+}
+
+.shaking {
+  animation: shake 0.5s; /* Durata dell'animazione */
+  animation-iteration-count: infinite; /* Rimuovi o imposta su un numero per limitare le ripetizioni */
+}
+
+
+
+
 
 /* Add this to your CSS (e.g., in App.css) */
 .body-container {
