@@ -187,10 +187,10 @@ const fetchData = async () => {
             <div className='grid grid-cols-2 auto-rows-auto gap-0'>
               
                 <img src={item.image} alt={item.bank} className="  overflow-hidden mt-1 pr-3"  />
-                <div className='flex flex-col border border-darkBlue shadow-lg shadow-darkBlue/50 rounded p-1'>
-                  <p className="text-xs">Guadagno lordo tra {formData.months} mesi</p>
+                <div className='flex flex-col border border-darkBlue bg-darkBlue bg-transparent shadow-lg shadow-darkBlue/50 rounded p-1'>
+                  <p className="text-xs text-white">Guadagno lordo tra {formData.months} mesi</p>
 
-                  <p className='font-bold text-xl '>{item.resa.toLocaleString()} €</p>
+                  <p className='font-bold text-xl text-white '>{item.resa.toLocaleString()} €</p>
                   </div>
                   <h5 className="text-gray-700 border-b border-customGreen pt-5  pb-3 ">Banca:</h5>
                   <h5 className='text-l font-semibold border-b border-customGreen pt-5  pb-3'>{item.bank}</h5>
