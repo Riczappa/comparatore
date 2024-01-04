@@ -174,6 +174,12 @@ const fetchData = async () => {
 
 
             </div>
+            <div className='mt-5'>
+                <a className='underline text-mediumBlue' target='_blank' href={item.foglietto}>
+                  <FeedIcon style={{color:"#183B50"}} />
+                  foglietto informativo
+                </a>
+                </div>
           </div>
 
           {/*Mobile*/}

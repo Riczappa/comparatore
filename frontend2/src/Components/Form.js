@@ -41,9 +41,9 @@ function FormStep1({ invalidAttempt, onNext, formData, updateFormData, handleSug
       </div>
       <div className='mt-5 flex items-center justify-center'>
         <KeyboardArrowUpIcon
-        sx={{color:'black', fontSize:40}}
+        sx={{color:'white', fontSize:40}}
         />
-        <h1 className="  ml-2 text-2xl font-bold inline-block p-0">
+        <h1 className=" text-white ml-2 text-2xl font-bold inline-block p-0">
         Prova il nostro simulatore
       </h1></div>
     </div>);
