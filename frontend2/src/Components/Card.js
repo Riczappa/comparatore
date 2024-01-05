@@ -140,7 +140,7 @@ const fetchData = async () => {
             <div className='flex flex-row space-x-6'>
               <div className='flex flex-col justify-between basis-1/5'> {/* Add justify-between */}
                 <img src={item.image} alt={item.bank} className="h-auto w-10 md:w-auto md:h-auto overflow-hidden rounded-lg" />
-                <div className='flex flex-col border border-red-500 shadow-lg shadow-red-500/50 rounded p-1'>
+                <div className='flex flex-col border border-mediumBlue shadow-lg shadow-mediumBlue rounded p-1'>
                   <p className="text-xs overflow-auto">Guadagno lordo tra {formData.months} mesi</p>
 
                   <p className='font-bold text-4xl '>{item.resa} €</p>
@@ -170,15 +170,35 @@ const fetchData = async () => {
                 </div>
               </div>
 
-              <button className="w-1/3 bg-blue-500 h-10 text-white px-4 py-2 rounded ml-7 basis-1/5  hover:bg-blue-800">Prosegui</button> {/* Remove width classes, add self-end and mt-auto */}
+              <button className="w-1/3 bg-mediumBlue h-10 text-white px-4 py-2 rounded ml-7 basis-1/5  hover:bg-darkBlue">Prosegui</button> {/* Remove width classes, add self-end and mt-auto */}
 
 
             </div>
-            <div className='mt-5'>
+            
+             {/* Conditional content that is shown when the item is expanded */}
+           {expanded[index] && (
+              <div className="extra-content">
+                {/* Your additional content here */}
+                <div className='grid grid-cols-2 space-x-2 mt-3'>
+                  <p className='mt-4 text-s'>costi apertura e chiusura</p>
+                  <p className='font-semibold  mt-4 text-xs'>{item.costi_extra ? item.costi_extra : "-" }</p>
+                  <p className='mt-4 text-s'>Liquidazione interessi</p>
+                  <p className='font-semibold mt-4 text-xs'>{item.liquidazione ? item.liquidazione : "-"}</p>
+                  <p className='mt-4 text-s'>informazioni sulla banca</p>
+                  <p className='font-semibold mt-4 text-xs'>{item.note ? item.note : "-"}</p>
+                
+                </div>
+                <div className='mt-5'>
                 <a className='underline text-mediumBlue' target='_blank' href={item.foglietto}>
                   <FeedIcon style={{color:"#183B50"}} />
                   foglietto informativo
                 </a>
+                </div>
+              </div>
+            )}
+            <div className='mt-5'>
+                <button className="w-full bg-white text-mediumBlue  px-4 py-2 rounded mt-2 hover:text-mediumBlue underline-offset-2 underline"  onClick={(event) =>{event.preventDefault(); toggleExpansion(index)}}> {expanded[index] ? 'Mostra meno' : 'Mostra altro'}</button> 
+
                 </div>
           </div>
 
@@ -237,7 +257,7 @@ const fetchData = async () => {
           </a>
         ))}
       </div>
-
+<div className='mt-12'></div>
     </div>
 
   )
