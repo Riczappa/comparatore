@@ -128,7 +128,7 @@ const fetchData = async () => {
   color="black" 
 ></l-hourglass></div>
       )}
-      <div className="grid grid-cols-1 gap-3 m-0 ">
+      <div className="grid grid-cols-1 gap-3 m-0">
         {filtdata.map((item, index) => (
           <a href={item.link} onClick={()=>{window.dataLayer.push({
             'event': 'clickout',
@@ -177,15 +177,15 @@ const fetchData = async () => {
             
              {/* Conditional content that is shown when the item is expanded */}
            {expanded[index] && (
-              <div className="extra-content">
+              <div className="extrabox">
                 {/* Your additional content here */}
-                <div className='grid grid-cols-2 space-x-2 mt-3'>
+                <div className='grid grid-cols-2 gap-3 mt-6'>
                   <p className='mt-4 text-s'>costi apertura e chiusura</p>
-                  <p className='font-semibold  mt-4 text-xs'>{item.costi_extra ? item.costi_extra : "-" }</p>
+                  <p className='font-semibold  mt-4 text-s'>{item.costi_extra ? item.costi_extra : "-" }</p>
                   <p className='mt-4 text-s'>Liquidazione interessi</p>
-                  <p className='font-semibold mt-4 text-xs'>{item.liquidazione ? item.liquidazione : "-"}</p>
+                  <p className='font-semibold mt-4 text-s'>{item.liquidazione ? item.liquidazione : "-"}</p>
                   <p className='mt-4 text-s'>informazioni sulla banca</p>
-                  <p className='font-semibold mt-4 text-xs'>{item.note ? item.note : "-"}</p>
+                  <p className='font-semibold mt-4 text-s'>{item.note ? item.note : "-"}</p>
                 
                 </div>
                 <div className='mt-5'>
@@ -234,12 +234,12 @@ const fetchData = async () => {
            {expanded[index] && (
               <div className="extra-content">
                 {/* Your additional content here */}
-                <div className='grid grid-cols-2 space-x-2'>
-                  <p className='mt-4 text-s'>costi apertura e chiusura</p>
+                <div className='grid grid-cols-2 gap-3'>
+                  <p className='mt-4 text-xs font-bold'>costi apertura e chiusura</p>
                   <p className='font-semibold  mt-4 text-xs'>{item.costi_extra ? item.costi_extra : "-" }</p>
-                  <p className='mt-4 text-s'>Liquidazione interessi</p>
+                  <p className='mt-4 text-xs font-bold'>Liquidazione interessi</p>
                   <p className='font-semibold mt-4 text-xs'>{item.liquidazione ? item.liquidazione : "-"}</p>
-                  <p className='mt-4 text-s'>informazioni sulla banca</p>
+                  <p className='mt-4 text-xs font-bold'>informazioni sulla banca</p>
                   <p className='font-semibold mt-4 text-xs'>{item.note ? item.note : "-"}</p>
                 
                 </div>

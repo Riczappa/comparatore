@@ -68,6 +68,8 @@
   animation: slideOut 0.4s forwards;
 }
 
+
+
 /* Aggiungi questo nel tuo file CSS */
 @keyframes shake {
   0% { transform: translateX(0px); }
@@ -95,6 +97,10 @@
 
 .content {
   flex: 1;
+}
+
+.extrabox{
+  transition: all 0.5s ease-in-out;
 }
 
 
