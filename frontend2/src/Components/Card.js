@@ -170,7 +170,7 @@ const fetchData = async () => {
                 </div>
               </div>
 
-              <button className="w-1/3 bg-mediumBlue h-10 text-white px-4 py-2 rounded ml-7 basis-1/5  hover:bg-darkBlue">Prosegui</button> {/* Remove width classes, add self-end and mt-auto */}
+              <button className="w-1/3 bg-mediumBlue h-10 text-white px-4 py-2 rounded ml-7 basis-1/5  hover:bg-darkBlue">Dettagli</button> {/* Remove width classes, add self-end and mt-auto */}
 
 
             </div>
@@ -227,7 +227,7 @@ const fetchData = async () => {
               </div>
                
 
-                             <button className="w-full bg-mediumBlue h-10 text-white px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Prosegui</button> 
+                             <button className="w-full bg-mediumBlue h-10 text-white px-4 py-2 rounded mt-2 basis-1/5  hover:bg-blue-800">Dettagli</button> 
                              <button className="w-full bg-white text-mediumBlue  px-4 py-2 rounded mt-2 hover:text-mediumBlue underline-offset-2 underline"  onClick={(event) =>{event.preventDefault(); toggleExpansion(index)}}> {expanded[index] ? 'Mostra meno' : 'Mostra altro'}</button> 
 
            {/* Conditional content that is shown when the item is expanded */}
