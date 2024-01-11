@@ -170,6 +170,17 @@ function Form() {
     }, 500);
   };
 
+//pushare su GTM evento risultati
+const pushEventResultToGTM = () => {
+  if (currentStep === 4) {
+    window.dataLayer.push({event:"result_page"})
+  }
+}
+
+useEffect(() => {
+  pushEventResultToGTM();
+},[currentStep])
+
 
   useEffect(() => {
     const handleKeyPress = (event) => {
