@@ -122,6 +122,10 @@
 }
 
 
+
+
+
+
 .back-button {
   padding: 0.5rem 1rem; /* Adjust padding as needed */
   background-color: transparent; /* No background */
@@ -159,3 +163,16 @@
 }
 
 
+.button_months{
+  width: 20%;
+  padding: 1rem 2rem;
+  border: 2px solid; 
+  background: white;
+  color: black;
+}
+
+.selected {
+  width: 20%;
+  background: #183B50;
+  color: white;
+}

@@ -84,21 +84,7 @@ const fetchData = async () => {
 
   
 
-  const handleFilterChange = (newFormData) => {
-    // Aggiorna lo stato di formData con i nuovi valori ricevuti
-    setFormData(newFormData);
-    
-  };
-
-
-  const handleVincolatoChange = (newVincolato) => {
-    setFormData(prevFormData => ({
-      ...prevFormData,
-      vincolato: newVincolato
-    }));
-  };
   
-
   useEffect(()=>{
     fetchData()
   },[formData])
@@ -116,8 +102,7 @@ const fetchData = async () => {
   return (
     <div>
      
-      <Filter formData={formData} onFilterChange={handleFilterChange} handleVincolatoChange={handleVincolatoChange}/>
- 
+     
 
 
       {isLoading && (<div className='mt-10'>
