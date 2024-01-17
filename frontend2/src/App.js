@@ -13,6 +13,7 @@ function App() {
         <div className='mt-14'></div>
         
         <Form />
+        
       </div>
       <Footer />
     </div>

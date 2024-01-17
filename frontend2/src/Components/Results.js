@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from './Card';
 import Filter from './Filter';
+import QuestAns from './QuestAns';
 
 function Results({formData, setFormData}) {
 
@@ -30,6 +31,7 @@ function Results({formData, setFormData}) {
        
        <main>
        <Card formData={formData} setFormData={setFormData}/>
+       <QuestAns/>
        </main>
       </div>
     )
