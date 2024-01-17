@@ -176,3 +176,7 @@
   background: #183B50;
   color: white;
 }
+
+.centered-shadow:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4); /* Soft blue shadow */
+}

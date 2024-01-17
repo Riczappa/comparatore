@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { hourglass } from 'ldrs'
-import Filter from "./Filter"
 import FeedIcon from '@mui/icons-material/Feed';
 
 
@@ -110,7 +109,7 @@ const fetchData = async () => {
   size="40"
   bg-opacity="0.1"
   speed="1.75" 
-  color="black" 
+  color="white" 
 ></l-hourglass></div>
       )}
       <div className="grid grid-cols-1 gap-3 m-0">
@@ -143,13 +142,13 @@ const fetchData = async () => {
                 </div>
                 <div className="mt-4 grid grid-cols-3 gap-3">
 
-                  <p className="">Description</p>
                   <p className="">Tasso annuo lordo</p>
+                  <p className="">tasso annuo netto</p>
                   <p className="">vincolo</p>
 
 
-                  <p className='font-semibold text-xl'>{item.description}</p>
-                  <p className='font-semibold text-xl'>{(item.tasso_eff*100).toFixed(2)}% </p>
+                  <p className='font-semibold text-xl'>{(item.tasso_eff*100).toFixed(2)}%</p>
+                  <p className='font-semibold text-xl'> {(item.tasso_eff*100*0.74).toFixed(2)}%</p>
                   <p className='font-semibold text-xl'>{item.vincolato}</p>
 
                 </div>
