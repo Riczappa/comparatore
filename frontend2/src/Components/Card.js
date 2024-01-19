@@ -131,7 +131,7 @@ function Card({ formData, setFormData }) {
             
             {/*desktop*/}
             <div className="hidden md:block bg-white p-6 rounded-lg shadow-lg mx-auto md:max-w-[900px] w-full text-left centered-shadow" key={`desktop-${index}`}>
-              <div className='flex flex-row space-x-6'>
+              <div className='flex flex-row justify-between'>
                 <div className='flex flex-col justify-between basis-1/4'> {/* Add justify-between */}
                   <div className='flex flex-col justify-start'>
                   <img src={item.image} alt={item.bank} className="h-auto md:w-auto md:h-auto overflow-hidden rounded-lg" />
@@ -146,7 +146,7 @@ function Card({ formData, setFormData }) {
 
 
 
-                <div className='felx flex-col basis-2/4'>
+                <div className='felx flex-col basis-2/4 ml-12'>
                   <div className='flex flex-row'>
                   <Brightness1Icon fontSize='small' sx={{color:"grey"}} className='pt-1' /> 
 
@@ -182,7 +182,7 @@ function Card({ formData, setFormData }) {
                   </div>
                 </div>
                 <div className='flex flex-col basis-1/4 justify-between'>
-                <div className='flex flex-col bg-customGreen shadow-lg shadow-mediumBlue rounded p-1'>
+                <div className='flex flex-col bg-customGreen shadow-lg shadow-mediumBlue rounded p-1 '>
                     <p className="text-s text-white  overflow-auto text-center">Guadagno lordo in {formData.months} mesi</p>
 
                     <p className='font-bold text-4xl text-white text-center'>{item.resa} €</p>
