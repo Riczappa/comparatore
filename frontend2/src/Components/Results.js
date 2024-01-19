@@ -23,13 +23,13 @@ function Results({formData, setFormData}) {
    
   
     return (
-        <div className='flex flex-col md:flex-row md:gap-4'>
+        <div className='flex flex-col md:flex-row md:gap-4 justify-center'>
         <aside className='md:h-screen md:sticky md:top-[68px]'>
        <Filter formData={formData} onFilterChange={handleFilterChange} handleVincolatoChange={handleVincolatoChange}/>
 
        </aside>
        
-       <main>
+       <main className=''>
        <Card formData={formData} setFormData={setFormData}/>
        <QuestAns/>
        </main>
