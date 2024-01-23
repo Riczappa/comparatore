@@ -162,7 +162,7 @@ const bankingProducts = [
       image: '/Loghibanche/Cherrybank.png',
       description:"premium",
       vincolato:"si",
-      tasso:{"6": 0.045, "12": 0.05,"18": 0.05,"24": 0.05,"36": 0.054,"48": 0.054},
+      tasso:{"6": 0.04, "12": 0.0425,"18": 0.0425,"24": 0.045,"36": 0.045,"48": 0.045},
       link: "https://www.cherrybank.it/privati-e-famiglie/conto-deposito/",
       liquidazione: "trimestrale",
       costi_extra: "nessun costo di apertura o chiusura, c'è solo il costo dell'imposta di bollo dello 0,20% annuo sulle somme depositate",
