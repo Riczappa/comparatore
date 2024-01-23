@@ -22,7 +22,7 @@ function Footer() {
                 &copy; {new Date().getFullYear()} Miglioricontideposito.it All rights reserved.
             </p>
             </div>
-            <p>P. IVA 04717030169</p>
+            <p className='text-gray-700 text-sm'>P. IVA 04717030169</p>
         </div>
     </div>
 </footer>
