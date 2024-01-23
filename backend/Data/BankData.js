@@ -121,7 +121,7 @@ const bankingProducts = [
       image: '/Loghibanche/Vivibanca.png',
       description:"premium",
       vincolato:"si",
-      tasso:{"6": 0.0425, "12": 0.05,"18": 0.0525,"24": 0.055,"36": 0.05,"48": "n.a."},
+      tasso:{"6": 0.0375, "12": 0.0425,"18": 0.045,"24": 0.0475,"36": 0.04,"48": "n.a."},
       link: "https://vivibanca.it/conto-deposito-viviconto",
       liquidazione: "alla scadenza del vincolo di deposito insieme al rimborso del capitale",
       costi_extra: "nessun costo di apertura o chiusura, c'è solo il costo dell'imposta di bollo dello 0,20% annuo sulle somme depositate",
