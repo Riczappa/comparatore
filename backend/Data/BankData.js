@@ -90,8 +90,8 @@ const bankingProducts = [
       foglietto:"/foglietti_informativi/tinaba_vincolato.pdf"
     },
     {
-      bank: 'Aixeda',
-      product: 'Banca Aixeda X risparmio vincolato',
+      bank: 'Aidexa',
+      product: 'Banca Aidexa X risparmio vincolato',
       image: '/Loghibanche/Aixeda.png',
       description:"premium",
       vincolato:"si",
@@ -99,12 +99,12 @@ const bankingProducts = [
       link: "https://hb.aidexa.it/onboarding/fe/03625/aidexa/#/step/1",
       liquidazione: "a scadenza del vincolo",
       costi_extra: "nessun costo di apertura o chiusura, c'è solo il costo dell'imposta di bollo dello 0,20% annuo sulle somme depositate",
-      note: "Aixeda, con una fondazione recente, si è rapidamente guadagnata una reputazione per i suoi servizi bancari incentrati sul cliente e per l'affidabilità, in particolare nelle soluzioni di banking digitale.",
+      note: "Aidexa, con una fondazione recente, si è rapidamente guadagnata una reputazione per i suoi servizi bancari incentrati sul cliente e per l'affidabilità, in particolare nelle soluzioni di banking digitale.",
       foglietto:"/foglietti_informativi/aixeda_vincolato.pdf"
     },
     {
-      bank: 'Aixeda',
-      product: 'Banca Aixeda X risparmio libero',
+      bank: 'Aidexa',
+      product: 'Banca Aidexa X risparmio libero',
       image: '/Loghibanche/Aixeda.png',
       description:"premium",
       vincolato:"no",
@@ -112,7 +112,7 @@ const bankingProducts = [
       link: "https://hb.aidexa.it/onboarding/fe/03625/aidexa/#/step/1",
       liquidazione: "trimestrale",
       costi_extra: "nessun costo di apertura o chiusura, c'è solo il costo dell'imposta di bollo dello 0,20% annuo sulle somme depositate",
-      note: "Aixeda, con una fondazione recente, si è rapidamente guadagnata una reputazione per i suoi servizi bancari incentrati sul cliente e per l'affidabilità, in particolare nelle soluzioni di banking digitale.",
+      note: "Aidexa, con una fondazione recente, si è rapidamente guadagnata una reputazione per i suoi servizi bancari incentrati sul cliente e per l'affidabilità, in particolare nelle soluzioni di banking digitale.",
       foglietto:"/foglietti_informativi/aixeda_libero.pdf"
     },
     {
